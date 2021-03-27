@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 21:20:18 by avieira           #+#    #+#             */
-/*   Updated: 2021/03/27 21:55:47 by avieira          ###   ########.fr       */
+/*   Updated: 2021/03/27 22:11:31 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@
 
 # include <stdio.h>
 
+# define MAX_INT 2147483647
+
 int		ft_isdigit(int c);
+int		ft_atoi_of(const char *nptr);
 
 #endif
