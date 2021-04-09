@@ -1,41 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi_of.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/08 20:44:21 by avieira           #+#    #+#             */
-/*   Updated: 2021/04/09 16:36:54 by avieira          ###   ########.fr       */
+/*   Created: 2019/10/10 15:23:52 by avieira           #+#    #+#             */
+/*   Updated: 2021/04/09 16:29:41 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int		ft_atoi_of(const char *nptr, int *list)
+void	*ft_calloc(size_t count, size_t size)
 {
-	const char		*temp;
-	long int	nb;
-	int				u;
+	char				*alloc;
+	size_t				i;
 
-	temp = nptr;
-	u = 1;
-	nb = 0;
-
-	while (*temp)
-		temp++;
-	while (temp != nptr)
-	{
-		temp--;
-		if (*temp >= '0' && *temp <= '9')
-		{
-			nb += (*temp - 48) * u;
-			u *= 10;
-		}
-		else if (*temp == '-')
-			nb *= -1;
-	}
-	if (nb < MIN_INT || nb > MAX_INT)
-		error(list);
-	return ((int)nb);
+	if (!(alloc = malloc(size * count)))
+		return (NULL);
+	i = 0;
+	while (i < count * size)
+		alloc[i++] = 0;
+	return (alloc);
 }
