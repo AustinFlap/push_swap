@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 21:23:18 by avieira           #+#    #+#             */
-/*   Updated: 2021/03/27 22:02:58 by avieira          ###   ########.fr       */
+/*   Updated: 2021/04/09 15:40:50 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,11 @@ void	check_list(int ac, char **av)
 		j = -1;
 		while (av[i][++j])
 		{
-			if (!(ft_isdigit(av[i][j]) || (av[i][j] == '-' && !j)))
+			if (!(ft_isdigit(av[i][j]) || (av[i][j] == '-' && !j &&
+																av[i][j + 1])))
 				error();
 		}
+		printf("%d\n", ft_atoi_of(av[i]));
 	}
 }
 
