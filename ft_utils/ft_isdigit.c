@@ -6,11 +6,11 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 20:51:20 by avieira           #+#    #+#             */
-/*   Updated: 2021/03/27 21:50:43 by avieira          ###   ########.fr       */
+/*   Updated: 2019/10/08 20:53:08 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "libft.h"
 
 int		ft_isdigit(int c)
 {

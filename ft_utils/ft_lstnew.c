@@ -1,41 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi_of.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/08 20:44:21 by avieira           #+#    #+#             */
-/*   Updated: 2021/04/09 16:36:54 by avieira          ###   ########.fr       */
+/*   Created: 2019/10/13 12:45:16 by avieira           #+#    #+#             */
+/*   Updated: 2019/10/13 14:40:36 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "libft.h"
 
-int		ft_atoi_of(const char *nptr, int *list)
+t_list	*ft_lstnew(void *content)
 {
-	const char		*temp;
-	long int	nb;
-	int				u;
+	t_list		*new;
 
-	temp = nptr;
-	u = 1;
-	nb = 0;
-
-	while (*temp)
-		temp++;
-	while (temp != nptr)
-	{
-		temp--;
-		if (*temp >= '0' && *temp <= '9')
-		{
-			nb += (*temp - 48) * u;
-			u *= 10;
-		}
-		else if (*temp == '-')
-			nb *= -1;
-	}
-	if (nb < MIN_INT || nb > MAX_INT)
-		error(list);
-	return ((int)nb);
+	if (!(new = malloc(sizeof(new))))
+		return (NULL);
+	new->content = content;
+	new->next = NULL;
+	return (new);
 }

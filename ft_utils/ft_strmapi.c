@@ -1,41 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi_of.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/08 20:44:21 by avieira           #+#    #+#             */
-/*   Updated: 2021/04/09 16:36:54 by avieira          ###   ########.fr       */
+/*   Created: 2019/10/10 16:20:09 by avieira           #+#    #+#             */
+/*   Updated: 2019/10/18 14:06:04 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "libft.h"
 
-int		ft_atoi_of(const char *nptr, int *list)
+static size_t	ft_strl(const char *s)
 {
-	const char		*temp;
-	long int	nb;
-	int				u;
+	int l;
 
-	temp = nptr;
-	u = 1;
-	nb = 0;
+	l = 0;
+	while (*s++)
+		l++;
+	return (l);
+}
 
-	while (*temp)
-		temp++;
-	while (temp != nptr)
-	{
-		temp--;
-		if (*temp >= '0' && *temp <= '9')
-		{
-			nb += (*temp - 48) * u;
-			u *= 10;
-		}
-		else if (*temp == '-')
-			nb *= -1;
-	}
-	if (nb < MIN_INT || nb > MAX_INT)
-		error(list);
-	return ((int)nb);
+char			*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+{
+	int		l;
+	char	*result;
+	int		i;
+
+	if (!s)
+		return (NULL);
+	l = ft_strl(s);
+	if (!(result = malloc(sizeof(char) * (l + 1))))
+		return (NULL);
+	i = -1;
+	while (++i < l)
+		result[i] = (*f)(i, s[i]);
+	result[i] = 0;
+	return (result);
 }

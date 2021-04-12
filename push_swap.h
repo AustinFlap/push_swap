@@ -19,9 +19,40 @@
 
 
 # include <stdio.h>
+# include "get_next_line.h"
+# include "ft_utils/libft.h"
 
 # define MAX_INT 2147483647
 # define MIN_INT -2147483648
+
+typedef enum	e_opes
+{
+	sa,
+	sb,
+	ss,
+	pa,
+	pb,
+	ra,
+	rb,
+	rr,
+	rra,
+	rrb,
+	rrr
+}				t_opes;
+
+typedef struct	s_opes_list
+{
+	t_opes		ope;
+	void		*next;
+}				t_opes_list;
+
+typedef struct	s_stacks
+{
+	int *a;
+	int *b;
+	int len_a;
+	int len_b;
+}				t_stacks;
 
 void	error(int *list);
 int		ft_isdigit(int c);

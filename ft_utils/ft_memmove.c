@@ -1,41 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi_of.c                                       :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/08 20:44:21 by avieira           #+#    #+#             */
-/*   Updated: 2021/04/09 16:36:54 by avieira          ###   ########.fr       */
+/*   Created: 2019/10/08 19:50:05 by avieira           #+#    #+#             */
+/*   Updated: 2019/10/17 18:38:37 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "libft.h"
 
-int		ft_atoi_of(const char *nptr, int *list)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	const char		*temp;
-	long int	nb;
-	int				u;
+	unsigned char		*t_dst;
+	const unsigned char	*t_src;
+	int					i;
+	int					p_diff;
 
-	temp = nptr;
-	u = 1;
-	nb = 0;
-
-	while (*temp)
-		temp++;
-	while (temp != nptr)
+	if (!dst && !src)
+		return (NULL);
+	t_dst = dst;
+	t_src = src;
+	p_diff = (t_dst > t_src) ? -1 : 1;
+	i = (t_dst > t_src) ? len - 1 : 0;
+	while ((size_t)i < len && i > -1)
 	{
-		temp--;
-		if (*temp >= '0' && *temp <= '9')
-		{
-			nb += (*temp - 48) * u;
-			u *= 10;
-		}
-		else if (*temp == '-')
-			nb *= -1;
+		t_dst[i] = t_src[i];
+		i += p_diff;
 	}
-	if (nb < MIN_INT || nb > MAX_INT)
-		error(list);
-	return ((int)nb);
+	return (dst);
 }

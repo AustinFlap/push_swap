@@ -1,28 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/10 15:23:52 by avieira           #+#    #+#             */
-/*   Updated: 2019/10/18 16:35:55 by avieira          ###   ########.fr       */
+/*   Created: 2019/10/11 15:02:43 by avieira           #+#    #+#             */
+/*   Updated: 2019/10/14 17:10:22 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t count, size_t size)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	int					*alloc;
-	size_t				i;
+	size_t		len_to_find;
+	size_t		i;
+	size_t		j;
 
-	if (!(alloc = malloc(size * count)))
-		return (NULL);
-	if (!count || !size)
-		return (malloc(1));
+	j = 0;
 	i = 0;
-	while (i < count)
-		alloc[i++] = 0;
-	return ((void *)alloc);
+	while (little[j] != '\0')
+		j++;
+	len_to_find = j - 1;
+	if (j == 0)
+		return ((char *)big);
+	j = 0;
+	while (big[i] != '\0' && i < len)
+	{
+		while (big[i + j] == little[j] && i + j < len)
+			if (j++ == len_to_find)
+				return ((char *)big + i);
+		j = 0;
+		i++;
+	}
+	return (NULL);
 }

@@ -1,41 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi_of.c                                       :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/08 20:44:21 by avieira           #+#    #+#             */
-/*   Updated: 2021/04/09 16:36:54 by avieira          ###   ########.fr       */
+/*   Created: 2019/10/10 14:12:38 by avieira           #+#    #+#             */
+/*   Updated: 2019/10/18 17:21:00 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "libft.h"
 
-int		ft_atoi_of(const char *nptr, int *list)
+static size_t	ft_strl(const char *s)
 {
-	const char		*temp;
-	long int	nb;
-	int				u;
+	int l;
 
-	temp = nptr;
-	u = 1;
-	nb = 0;
+	if (!s)
+		return (0);
+	l = 0;
+	while (*s++)
+		l++;
+	return (l);
+}
 
-	while (*temp)
-		temp++;
-	while (temp != nptr)
+size_t			ft_strlcpy(char *dst, char *src, size_t dstsize)
+{
+	size_t i;
+
+	i = 0;
+	if (dstsize && src && dst)
 	{
-		temp--;
-		if (*temp >= '0' && *temp <= '9')
+		while (i < dstsize - 1 && src[i])
 		{
-			nb += (*temp - 48) * u;
-			u *= 10;
+			dst[i] = src[i];
+			i++;
 		}
-		else if (*temp == '-')
-			nb *= -1;
+		dst[i] = 0;
 	}
-	if (nb < MIN_INT || nb > MAX_INT)
-		error(list);
-	return ((int)nb);
+	return (ft_strl(src));
 }

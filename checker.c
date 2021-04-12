@@ -42,11 +42,26 @@ void	get_list(int ac, char **av, int *list)
 	}
 }
 
+void	read_opes(t_opes_list **opes_list)
+{
+	char	*line;
+	char	*str_opes[11] = {"sa", "sb", "ss", "pa", "pb", "ra", "rb", "rr",
+														"rra", "rrb", "rrr"};
+
+	while (get_next_line(0, &line))
+	{
+		printf("--%s\n", line);
+	}
+}
+
 int		main(int ac, char **av)
 {
 	int	*list;
+	t_opes_list *opes_list;
 
+	opes_list = NULL;
 	if (!(list = ft_calloc(ac - 1, sizeof(int))))
 		error(list);
 	get_list(ac, av, list);
+	read_opes(&opes_list);
 }

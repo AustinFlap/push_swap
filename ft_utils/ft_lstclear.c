@@ -1,41 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi_of.c                                       :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/08 20:44:21 by avieira           #+#    #+#             */
-/*   Updated: 2021/04/09 16:36:54 by avieira          ###   ########.fr       */
+/*   Created: 2019/10/13 13:42:27 by avieira           #+#    #+#             */
+/*   Updated: 2019/10/14 17:07:57 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "libft.h"
 
-int		ft_atoi_of(const char *nptr, int *list)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	const char		*temp;
-	long int	nb;
-	int				u;
+	t_list	*temp;
 
-	temp = nptr;
-	u = 1;
-	nb = 0;
-
-	while (*temp)
-		temp++;
-	while (temp != nptr)
+	temp = (*lst);
+	(*del)((*lst)->content);
+	*lst = (*lst)->next;
+	temp = NULL;
+	while (*lst)
 	{
-		temp--;
-		if (*temp >= '0' && *temp <= '9')
-		{
-			nb += (*temp - 48) * u;
-			u *= 10;
-		}
-		else if (*temp == '-')
-			nb *= -1;
+		temp = (*lst);
+		(*del)((*lst)->content);
+		*lst = (*lst)->next;
+		free(temp);
 	}
-	if (nb < MIN_INT || nb > MAX_INT)
-		error(list);
-	return ((int)nb);
 }
