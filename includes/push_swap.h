@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 21:20:18 by avieira           #+#    #+#             */
-/*   Updated: 2021/04/14 12:37:15 by avieira          ###   ########.fr       */
+/*   Updated: 2021/04/14 14:03:48 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include "get_next_line.h"
+# include "ft_printf.h"
 
 
-# include <stdio.h>
 
 # define MAX_INT 2147483647
 # define MIN_INT -2147483648

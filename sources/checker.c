@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 21:23:18 by avieira           #+#    #+#             */
-/*   Updated: 2021/04/14 11:56:27 by avieira          ###   ########.fr       */
+/*   Updated: 2021/04/14 14:04:09 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ void	read_opes(t_opes_list **opes_list)
 	(void)str_opes;
 	while (get_next_line(0, &line))
 	{
-		printf("--%s\n", line);
 	}
 }
 
@@ -61,6 +60,7 @@ int		main(int ac, char **av)
 	int	*list;
 	t_opes_list *opes_list;
 
+	ft_printf("LOL JE TEST\n");
 	opes_list = NULL;
 	if (!(list = ft_calloc(ac - 1, sizeof(int))))
 		error(list);
