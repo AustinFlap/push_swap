@@ -1,34 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/08 19:50:05 by avieira           #+#    #+#             */
-/*   Updated: 2019/10/17 18:38:37 by avieira          ###   ########.fr       */
+/*   Created: 2019/10/08 20:51:20 by avieira           #+#    #+#             */
+/*   Updated: 2021/04/14 12:34:07 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../includes/push_swap.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+int		ft_isdigit(int c)
 {
-	unsigned char		*t_dst;
-	const unsigned char	*t_src;
-	int					i;
-	int					p_diff;
-
-	if (!dst && !src)
-		return (NULL);
-	t_dst = dst;
-	t_src = src;
-	p_diff = (t_dst > t_src) ? -1 : 1;
-	i = (t_dst > t_src) ? len - 1 : 0;
-	while ((size_t)i < len && i > -1)
-	{
-		t_dst[i] = t_src[i];
-		i += p_diff;
-	}
-	return (dst);
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
 }

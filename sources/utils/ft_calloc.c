@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/13 12:45:16 by avieira           #+#    #+#             */
-/*   Updated: 2019/10/13 14:40:36 by avieira          ###   ########.fr       */
+/*   Created: 2019/10/10 15:23:52 by avieira           #+#    #+#             */
+/*   Updated: 2021/04/14 12:33:43 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../includes/push_swap.h"
 
-t_list	*ft_lstnew(void *content)
+void	*ft_calloc(size_t count, size_t size)
 {
-	t_list		*new;
+	char				*alloc;
+	size_t				i;
 
-	if (!(new = malloc(sizeof(new))))
+	if (!(alloc = malloc(size * count)))
 		return (NULL);
-	new->content = content;
-	new->next = NULL;
-	return (new);
+	i = 0;
+	while (i < count * size)
+		alloc[i++] = 0;
+	return (alloc);
 }

@@ -1,26 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_atoi_of.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/13 13:33:15 by avieira           #+#    #+#             */
-/*   Updated: 2019/10/14 17:14:36 by avieira          ###   ########.fr       */
+/*   Created: 2019/10/08 20:44:21 by avieira           #+#    #+#             */
+/*   Updated: 2021/04/14 12:33:23 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../includes/push_swap.h"
 
-int		ft_lstsize(t_list *lst)
+int		ft_atoi_of(const char *nptr, int *list)
 {
-	int size;
+	const char		*temp;
+	long int	nb;
+	int				u;
 
-	size = 0;
-	while (lst)
+	temp = nptr;
+	u = 1;
+	nb = 0;
+
+	while (*temp)
+		temp++;
+	while (temp != nptr)
 	{
-		size++;
-		lst = lst->next;
+		temp--;
+		if (*temp >= '0' && *temp <= '9')
+		{
+			nb += (*temp - 48) * u;
+			u *= 10;
+		}
+		else if (*temp == '-')
+			nb *= -1;
 	}
-	return (size);
+	if (nb < MIN_INT || nb > MAX_INT)
+		error(list);
+	return ((int)nb);
 }

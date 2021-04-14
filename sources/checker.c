@@ -6,11 +6,11 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 21:23:18 by avieira           #+#    #+#             */
-/*   Updated: 2021/04/09 16:44:54 by avieira          ###   ########.fr       */
+/*   Updated: 2021/04/14 11:56:27 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 void	error(int *list)
 {
@@ -48,6 +48,8 @@ void	read_opes(t_opes_list **opes_list)
 	char	*str_opes[11] = {"sa", "sb", "ss", "pa", "pb", "ra", "rb", "rr",
 														"rra", "rrb", "rrr"};
 
+	(void)opes_list;
+	(void)str_opes;
 	while (get_next_line(0, &line))
 	{
 		printf("--%s\n", line);

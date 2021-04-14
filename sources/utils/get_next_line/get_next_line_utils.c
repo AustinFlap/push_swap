@@ -6,11 +6,11 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 14:15:30 by avieira           #+#    #+#             */
-/*   Updated: 2020/04/11 01:54:51 by avieira          ###   ########.fr       */
+/*   Updated: 2021/04/14 12:34:24 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../get_next_line.h"
+#include "../../../includes/get_next_line.h"
 
 size_t					ft_strl_spec(const char *s, char spec)
 {

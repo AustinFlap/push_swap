@@ -6,11 +6,11 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 18:24:13 by avieira           #+#    #+#             */
-/*   Updated: 2020/04/11 03:57:22 by avieira          ###   ########.fr       */
+/*   Updated: 2021/04/14 12:34:18 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../get_next_line.h"
+#include "../../../includes/get_next_line.h"
 
 static char			*append_line(char *buff, char *line, int *nl)
 {
