@@ -52,6 +52,8 @@ void	read_opes(t_opes_list **opes_list)
 	(void)str_opes;
 	while (get_next_line(0, &line))
 	{
+	//	if (*opes_list)
+	//		*opes_list = (struct s_opes_list)ft_lstnew(line);
 	}
 }
 

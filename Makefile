@@ -19,11 +19,7 @@ MKD = mkdir
 RM = rm -rf
 
 SRCS = 	sources/checker.c \
-		sources/utils/get_next_line/get_next_line.c \
-		sources//utils/get_next_line/get_next_line_utils.c \
-		sources/utils/ft_atoi_of.c \
-		sources/utils/ft_calloc.c \
-		sources/utils/ft_isdigit.c 
+		sources/utils/ft_atoi_of.c 
 
 OBJ = $(SRCS:%.c=%.o)
 

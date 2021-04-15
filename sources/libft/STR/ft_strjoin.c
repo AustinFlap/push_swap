@@ -22,7 +22,7 @@ static size_t		ft_strl(const char *s)
 	return (l);
 }
 
-char				*ft_strjoin(char const *s1, char const *s2)
+char				*ft_strjoin(char *s1, char  *s2)
 {
 	char	*s;
 	int		i;

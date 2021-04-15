@@ -16,9 +16,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-# include "get_next_line.h"
-# include "ft_printf.h"
-
+# include "../sources/libft/includes/libft.h"
 
 
 # define MAX_INT 2147483647

@@ -30,7 +30,7 @@ static int		get_lenght(long int n)
 	return (len);
 }
 
-char			*ft_itoa(int n)
+char			*ft_itoa(long int n)
 {
 	long int	num;
 	char		*number;

@@ -41,7 +41,7 @@ void			xx(t_flag a, int *b, char *c);
 void			mod(t_flag a, int *b, char *c);
 int				ft_isdigit(int a);
 int				ft_atoi(const char *a);
-int				ft_strlen(const char *s);
+int				ft_strlen(char *s);
 void			*ft_memset(void *a, int b, size_t c);
 void			*ft_calloc(size_t a, size_t b);
 void			*ft_memcpy(void *a, const void *b, size_t c);
