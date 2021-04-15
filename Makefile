@@ -45,12 +45,14 @@ all: $(NAME)
 	@($(CC) $(CFLAGS) -c -I$(IFLAGS) $< -o $(<:.c=.o))
 
 $(NAME): $(OBJ)
+	@(printf "$(STRT_STYLE)Compiling libft...\n$(END_STYLE)")
 	@make -C sources/libft/
 	@(printf "$(STRT_STYLE)Compiling...\n$(END_STYLE)")
 	@($(CC) -o $(NAME) -I$(IFLAGS) $(OBJ) $(CFLAGS) $(LIBFT))
 	@(printf "$(STRT_STYLE)Done.\n$(END_STYLE)")
 
 clean:
+	@(printf "$(STRT_STYLE)Cleaning libft...\n$(END_STYLE)")
 	@make clean -C sources/libft/
 	@(printf "$(STRT_STYLE)Cleaning...\n$(END_STYLE)")
 	@($(RM) $(SRCS_DIR)/*.o)
@@ -59,6 +61,7 @@ clean:
 	@(printf "$(STRT_STYLE)Done.\n$(END_STYLE)")
 
 fclean: clean
+	@(printf "$(STRT_STYLE)Fcleaning libft...\n$(END_STYLE)")
 	@make fclean -C sources/libft/
 	@(printf "$(STRT_STYLE)Fcleaning...\n$(END_STYLE)")
 	@($(RM) $(NAME))

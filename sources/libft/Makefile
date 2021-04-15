@@ -37,19 +37,19 @@ CTFLAGS	= -Wall -Werror -Wextra -I./includes
 OBJS	= ${SRCS:.c=.o}
 
 $(NAME):	${OBJS}
-			ar rc ${NAME} $^
-			ranlib ${NAME}
+			@ar rc ${NAME} $^
+			@ranlib ${NAME}
 
 all:	$(NAME)
 
 %.o: %.c
-			$(CC) $(CTFLAGS) -c $< -o $@
+			@$(CC) $(CTFLAGS) -c $< -o $@
 
 clean: 
-			${RM} ${OBJS}
+			@${RM} ${OBJS}
 
 fclean:		clean
-			${RM} ${NAME}
+			@${RM} ${NAME}
 
 re:			fclean all
 
