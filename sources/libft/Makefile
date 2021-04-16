@@ -6,7 +6,7 @@
 #    By: avieira <avieira@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/10 12:48:43 by avieira           #+#    #+#              #
-#    Updated: 2021/04/16 16:30:21 by avieira          ###   ########.fr        #
+#    Updated: 2021/04/16 21:29:02 by avieira          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,8 @@ SRCS	= INT_STR/ft_atoi.c MEM/ft_bzero.c MEM/ft_calloc.c CHAR/ft_isalnum.c \
 			LST/ft_lstsize.c GNL/get_next_line.c \
 			GNL/get_next_line_utils.c PRINTF/conversion.c \
 			PRINTF/conversion_2.c PRINTF/flags.c PRINTF/ft_printf.c \
-			PRINTF/printf_utils.c PRINTF/printf_utils_2.c 
+			PRINTF/printf_utils.c PRINTF/printf_utils_2.c \
+			LST/ft_lstdelall.c
 
 CC		= clang
 RM		= rm -f

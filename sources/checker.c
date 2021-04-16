@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 21:23:18 by avieira           #+#    #+#             */
-/*   Updated: 2021/04/14 14:04:09 by avieira          ###   ########.fr       */
+/*   Updated: 2021/04/16 16:57:49 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,30 +42,42 @@ void	get_list(int ac, char **av, int *list)
 	}
 }
 
-void	read_opes(t_opes_list **opes_list)
+void	read_opes(t_list **opes_list)
 {
 	char	*line;
 	char	*str_opes[11] = {"sa", "sb", "ss", "pa", "pb", "ra", "rb", "rr",
 														"rra", "rrb", "rrr"};
+	t_list	*temp;
+	int		ret;
 
-	(void)opes_list;
 	(void)str_opes;
-	while (get_next_line(0, &line))
+	ret = 1;
+	while (ret > 0)
 	{
-	//	if (*opes_list)
-	//		*opes_list = (struct s_opes_list)ft_lstnew(line);
+		ret = get_next_line(0, &line);
+		//Leak, del all lst if null malloc
+		if (!(temp = ft_lstnew(line)))
+			error(NULL);
+		if (*opes_list)
+			ft_lstadd_back(opes_list, temp);
+		else 
+			*opes_list = temp;
 	}
 }
 
 int		main(int ac, char **av)
 {
 	int	*list;
-	t_opes_list *opes_list;
+	t_list *opes_list;
 
-	ft_printf("LOL JE TEST\n");
 	opes_list = NULL;
 	if (!(list = ft_calloc(ac - 1, sizeof(int))))
 		error(list);
 	get_list(ac, av, list);
 	read_opes(&opes_list);
+	while (opes_list)
+	{
+		ft_printf("--%s\n", opes_list->content);
+		opes_list = opes_list->next;
+	}
 }

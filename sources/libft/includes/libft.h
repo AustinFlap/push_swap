@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 14:19:24 by avieira           #+#    #+#             */
-/*   Updated: 2019/10/21 16:22:54 by avieira          ###   ########.fr       */
+/*   Updated: 2021/04/16 21:30:06 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,6 @@ void				ft_lstclear(t_list **lst, void (*del)(void*));
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *), \
 					void (*del)(void *));
+void				ft_lstdelall(t_list **lst, void	(*del)(void *));
 
 #endif
