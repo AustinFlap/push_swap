@@ -6,7 +6,7 @@
 #    By: avieira <avieira@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/14 11:51:16 by avieira           #+#    #+#              #
-#    Updated: 2021/04/14 14:02:09 by avieira          ###   ########.fr        #
+#    Updated: 2021/04/16 21:41:45 by avieira          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,9 @@ MKD = mkdir
 RM = rm -rf
 
 SRCS = 	sources/checker.c \
-		sources/utils/ft_atoi_of.c 
+		sources/utils/ft_atoi_of.c \
+		sources/get_stack.c \
+		sources/get_opes.c
 
 OBJ = $(SRCS:%.c=%.o)
 

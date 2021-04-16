@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 21:20:18 by avieira           #+#    #+#             */
-/*   Updated: 2021/04/16 17:06:54 by avieira          ###   ########.fr       */
+/*   Updated: 2021/04/16 22:08:05 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,15 @@ typedef struct	s_stacks
 	int			len_b;
 }				t_stacks;
 
-void			error(int *list);
-int				ft_atoi_of(const char *nptr, int *list);
+typedef struct	s_input
+{
+	t_stacks	stacks;
+	t_list		**opes;
+}				t_input;
+
+void			error(void);
+int				ft_atoi_of(const char *nptr);
+void			get_stack(int ac, char **av, int *a);
+void			get_opes(t_list **opes);
 
 #endif

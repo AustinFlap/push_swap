@@ -1,41 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi_of.c                                       :+:      :+:    :+:   */
+/*   get_stack.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/08 20:44:21 by avieira           #+#    #+#             */
-/*   Updated: 2021/04/16 22:03:26 by avieira          ###   ########.fr       */
+/*   Created: 2021/03/27 21:23:18 by avieira           #+#    #+#             */
+/*   Updated: 2021/04/16 22:04:09 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../includes/push_swap.h"
 
-int		ft_atoi_of(const char *nptr)
+void	get_stack(int ac, char **av, int *a)
 {
-	const char		*temp;
-	long int	nb;
-	int				u;
+	int	i;
+	int	j;
+	int *temp;
 
-	temp = nptr;
-	u = 1;
-	nb = 0;
-
-	while (*temp)
-		temp++;
-	while (temp != nptr)
+	i = 0;
+	temp = a;
+	while (++i < ac)
 	{
-		temp--;
-		if (*temp >= '0' && *temp <= '9')
+		j = -1;
+		while (av[i][++j])
 		{
-			nb += (*temp - 48) * u;
-			u *= 10;
+			if (!(ft_isdigit(av[i][j]) || (av[i][j] == '-' && !j &&
+																av[i][j + 1])))
+				error();
 		}
-		else if (*temp == '-')
-			nb *= -1;
+		*temp = ft_atoi_of(av[i]);
+		temp++;
 	}
-	if (nb < MIN_INT || nb > MAX_INT)
-		error();
-	return ((int)nb);
 }
