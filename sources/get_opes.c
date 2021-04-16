@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 21:23:18 by avieira           #+#    #+#             */
-/*   Updated: 2021/04/16 22:28:57 by avieira          ###   ########.fr       */
+/*   Updated: 2021/04/16 22:47:02 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,6 @@ void	get_opes(t_list **opes)
 				*opes = temp;
 			define_ope(str_opes, line, temp);
 		}
+		free(line);
 	}
 }

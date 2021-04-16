@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 21:23:18 by avieira           #+#    #+#             */
-/*   Updated: 2021/04/16 22:26:47 by avieira          ###   ########.fr       */
+/*   Updated: 2021/04/16 22:38:20 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,10 @@ void	alloc_input(t_input *input, int ac)
 	if (!(input->stacks.a = ft_calloc(ac - 1, sizeof(int))))
 		error();
 	if (!(input->stacks.b = ft_calloc(ac - 1, sizeof(int))))
+	{
+		free(input->stacks.a);
 		error();
+	}
 	input->stacks.len_a = ac - 1;
 	input->stacks.len_b = 0;
 }
