@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 21:24:26 by avieira           #+#    #+#             */
-/*   Updated: 2021/04/16 21:27:48 by avieira          ###   ########.fr       */
+/*   Updated: 2021/04/17 19:56:38 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,14 @@ void		ft_lstdelall(t_list **lst, void (*del)(void *))
 {
 	t_list	*temp;
 
-	while (*lst)
+	if (del)
 	{
-		temp = *lst;
-		del(temp->content);
-		*lst = (*lst)->next;
-		free(temp);
+		while (*lst)
+		{
+			temp = *lst;
+			del(temp->content);
+			*lst = (*lst)->next;
+			free(temp);
+		}
 	}
 }
