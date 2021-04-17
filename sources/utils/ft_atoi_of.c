@@ -6,13 +6,13 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 20:44:21 by avieira           #+#    #+#             */
-/*   Updated: 2021/04/16 22:03:26 by avieira          ###   ########.fr       */
+/*   Updated: 2021/04/17 20:30:09 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-int		ft_atoi_of(const char *nptr)
+int		ft_atoi_of(const char *nptr, t_input *input)
 {
 	const char		*temp;
 	long int	nb;
@@ -36,6 +36,6 @@ int		ft_atoi_of(const char *nptr)
 			nb *= -1;
 	}
 	if (nb < MIN_INT || nb > MAX_INT)
-		error();
+		error(input);
 	return ((int)nb);
 }

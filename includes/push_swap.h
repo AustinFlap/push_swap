@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 21:20:18 by avieira           #+#    #+#             */
-/*   Updated: 2021/04/16 22:08:05 by avieira          ###   ########.fr       */
+/*   Updated: 2021/04/17 20:57:24 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,12 @@ typedef struct	s_stacks
 typedef struct	s_input
 {
 	t_stacks	stacks;
-	t_list		**opes;
+	t_list		*opes;
 }				t_input;
 
-void			error(void);
-int				ft_atoi_of(const char *nptr);
-void			get_stack(int ac, char **av, int *a);
-void			get_opes(t_list **opes);
+void			error(t_input *input);
+int				ft_atoi_of(const char *nptr, t_input *input);
+void			get_stack(int ac, char **av, t_input *input);
+void			get_opes(t_input *input);
 
 #endif
