@@ -39,8 +39,8 @@ typedef struct	s_stacks
 {
 	int			*a;
 	int			*b;
-	int			len_a;
-	int			len_b;
+	int			*len_a;
+	int			*len_b;
 }				t_stacks;
 
 typedef struct	s_input
@@ -53,5 +53,23 @@ void			error(t_input *input);
 int				ft_atoi_of(const char *nptr, t_input *input);
 void			get_stack(int ac, char **av, t_input *input);
 void			get_opes(t_input *input);
+void			exec_opes(t_input *input);
+void			check_stacks(int *a, int *len_a, int *len_b);
+void			swap_a(int *a, int *b, int *len_a, int *len_b);
+void			swap_b(int *a, int *b, int *len_a, int *len_b);
+void			swap_double(int *a, int *b, int *len_a, int *len_b);
+void			push_a(int *a, int *b, int *len_a, int *len_b);
+void			push_b(int *a, int *b, int *len_a, int *len_b);
+void			rotate_a(int *a, int *b, int *len_a, int *len_b);
+void			rotate_b(int *a, int *b, int *len_a, int *len_b);
+void			rotate_double(int *a, int *b, int *len_a, int *len_b);
+void			reverse_rotate_a(int *a, int *b, int *len_a, int *len_b);
+void			reverse_rotate_b(int *a, int *b, int *len_a, int *len_b);
+void			reverse_rotate_double(int *a, int *b, int *len_a, int *len_b);
+void			swap(int *a, int *len_a);
+void			push(int *a, int *b, int *len_a, int *len_b);
+void			rotate(int *a, int *len_a);
+void			reverse_rotate(int *a, int *len_a);
+void			reverse_array_index(int *a, int start, int end);
 
 #endif

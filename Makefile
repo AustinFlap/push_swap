@@ -6,7 +6,7 @@
 #    By: avieira <avieira@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/14 11:51:16 by avieira           #+#    #+#              #
-#    Updated: 2021/04/16 21:41:45 by avieira          ###   ########.fr        #
+#    Updated: 2021/04/27 00:56:07 by avieira          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,23 @@ RM = rm -rf
 SRCS = 	sources/checker.c \
 		sources/utils/ft_atoi_of.c \
 		sources/get_stack.c \
-		sources/get_opes.c
+		sources/get_opes.c \
+		sources/opes/sa.c \
+		sources/opes/sb.c \
+		sources/opes/ss.c \
+		sources/opes/pa.c \
+		sources/opes/pb.c \
+		sources/opes/ra.c \
+		sources/opes/rb.c \
+		sources/opes/rr.c \
+		sources/opes/rra.c \
+		sources/opes/rrb.c \
+		sources/opes/rrr.c \
+		sources/opes/exec_opes/push.c \
+		sources/opes/exec_opes/rotate.c \
+		sources/opes/exec_opes/swap.c \
+		sources/check_stacks.c \
+		sources/exec_opes.c
 
 OBJ = $(SRCS:%.c=%.o)
 
