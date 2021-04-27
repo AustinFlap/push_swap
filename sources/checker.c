@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 21:23:18 by avieira           #+#    #+#             */
-/*   Updated: 2021/04/27 01:06:53 by avieira          ###   ########.fr       */
+/*   Updated: 2021/04/27 01:57:18 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,12 @@ int		main(int ac, char **av)
 {
 	t_input	input;
 
-	alloc_input(&input, ac);
-	get_stack(ac, av, &input);
-	get_opes(&input);
-	exec_opes(&input);
-	//check_stacks(input.stacks.a, input.stacks.len_a, input.stacks.len_b);
+	if (ac - 1)
+	{
+		alloc_input(&input, ac);
+		get_stack(ac, av, &input);
+		get_opes(&input);
+		exec_opes(&input);
+		check_stacks(input.stacks.a, input.stacks.len_a, input.stacks.len_b);
+	}
 }

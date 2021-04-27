@@ -6,7 +6,7 @@
 /*   By: avieira <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 00:22:55 by avieira           #+#    #+#             */
-/*   Updated: 2021/04/27 00:39:20 by avieira          ###   ########.fr       */
+/*   Updated: 2021/04/27 01:44:30 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	exec_opes(t_input *input)
 	stack = &input->stacks;
 	while (temp)
 	{
-		f[(int)temp->content](stack->a, stack->b, stack->len_a, stack->len_b);
+		f[*((int *)temp->content)](stack->a, stack->b, stack->len_a, stack->len_b);
 		temp = temp->next;
 	}
 }

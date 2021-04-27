@@ -6,11 +6,21 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 21:23:18 by avieira           #+#    #+#             */
-/*   Updated: 2021/04/17 20:36:53 by avieira          ###   ########.fr       */
+/*   Updated: 2021/04/27 02:13:22 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+void	check_duplicates(int *list, int idx, int value, t_input *input)
+{
+	int	i;
+
+	i = -1;
+	while (++i < idx)
+		if (list[i] == value)
+			error(input);
+}
 
 void	get_stack(int ac, char **av, t_input *input)
 {
@@ -30,6 +40,7 @@ void	get_stack(int ac, char **av, t_input *input)
 				error(input);
 		}
 		*temp = ft_atoi_of(av[i], input);
+		check_duplicates(input->stacks.a, temp - input->stacks.a, *temp, input);
 		temp++;
 	}
 }
