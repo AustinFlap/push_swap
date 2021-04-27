@@ -6,11 +6,32 @@
 /*   By: avieira <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 00:22:55 by avieira           #+#    #+#             */
-/*   Updated: 2021/04/27 01:44:30 by avieira          ###   ########.fr       */
+/*   Updated: 2021/04/27 12:50:06 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+void	display_stacks(int *a, int *b, int *len_a, int *len_b)
+{
+	int	i;
+
+	i = 0;
+	ft_printf("\n");
+	while (i < *len_a || i < *len_b)
+	{
+		if (i < *len_a)
+			ft_printf("%d ", a[i]);
+		else
+			ft_printf("  ");
+		if (i < *len_b)
+			ft_printf("%d \n", b[i]);
+		else
+			ft_printf("  \n");
+		i++;
+	}
+	ft_printf("- -\na b\n---\n");
+}
 
 void	exec_opes(t_input *input)
 {
@@ -34,6 +55,7 @@ void	exec_opes(t_input *input)
 	while (temp)
 	{
 		f[*((int *)temp->content)](stack->a, stack->b, stack->len_a, stack->len_b);
+		display_stacks(stack->a, stack->b, stack->len_a, stack->len_b);
 		temp = temp->next;
 	}
 }
