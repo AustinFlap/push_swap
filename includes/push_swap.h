@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 21:20:18 by avieira           #+#    #+#             */
-/*   Updated: 2021/04/17 20:57:24 by avieira          ###   ########.fr       */
+/*   Updated: 2021/05/09 00:28:58 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ typedef struct	s_input
 }				t_input;
 
 void			error(t_input *input);
+void			alloc_input(t_input *input, int ac);
+void			free_input(t_input *input);
 int				ft_atoi_of(const char *nptr, t_input *input);
 void			get_stack(int ac, char **av, t_input *input);
 void			get_opes(t_input *input);
