@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 21:20:18 by avieira           #+#    #+#             */
-/*   Updated: 2021/05/09 00:28:58 by avieira          ###   ########.fr       */
+/*   Updated: 2021/09/25 01:30:54 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,7 @@ void			push(int *a, int *b, int *len_a, int *len_b);
 void			rotate(int *a, int *len_a);
 void			reverse_rotate(int *a, int *len_a);
 void			reverse_array_index(int *a, int start, int end);
+void			display_stacks(int *a, int *b, int *len_a, int *len_b);
+void			transform_stack(t_input*input);
 
 #endif

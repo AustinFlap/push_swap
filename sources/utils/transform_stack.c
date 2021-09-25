@@ -1,27 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   transform_stack.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/08 23:58:03 by avieira           #+#    #+#             */
-/*   Updated: 2021/09/25 01:28:55 by avieira          ###   ########.fr       */
+/*   Created: 2021/09/25 01:29:36 by avieira           #+#    #+#             */
+/*   Updated: 2021/09/25 11:56:20 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
-int				main(int ac, char **av)
+int			find_next(int actual, int *list, int len)
 {
-	t_input		input;
+	int		delta;
+	int		i;
 
-	if (ac - 1)
+	i = 0;
+	while (i < len)
 	{
-		alloc_input(&input, ac);
-		get_stack(ac, av, &input);
-		transform_stack(&input);
-		display_stacks(input.stacks.a, input.stacks.b, input.stacks.len_a, input.stacks.len_b);
+		
 	}
-	ft_printf("LOL\n");
+	return (0);
+}
+
+void		transform_stack(t_input *input)
+{
+	int		*list;
+	int		len;
+	int		i;
+
+	list = input->stacks.a;
+	len = *input->stacks.len_a;
 }

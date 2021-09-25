@@ -6,7 +6,7 @@
 #    By: avieira <avieira@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/14 11:51:16 by avieira           #+#    #+#              #
-#    Updated: 2021/05/09 00:29:13 by avieira          ###   ########.fr        #
+#    Updated: 2021/09/25 11:58:26 by avieira          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,8 @@ SRCS =	sources/utils/ft_atoi_of.c \
 		sources/opes/exec_opes/swap.c \
 		sources/check_stacks.c \
 		sources/exec_opes.c \
-		sources/alloc_free.c
+		sources/alloc_free.c \
+		sources/utils/transform_stack.c
 
 SRC_CHECKER = sources/checker.c
 SRC_PUSH_SWAP = sources/push_swap.c
