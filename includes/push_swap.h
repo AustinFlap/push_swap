@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 21:20:18 by avieira           #+#    #+#             */
-/*   Updated: 2021/09/25 01:30:54 by avieira          ###   ########.fr       */
+/*   Updated: 2021/09/27 18:58:47 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@
 
 # define MAX_INT 2147483647
 # define MIN_INT -2147483648
+# define SIZE_CHUNK 5
+
+# include <stdio.h>
 
 typedef enum	e_opes
 {
@@ -75,5 +78,7 @@ void			reverse_rotate(int *a, int *len_a);
 void			reverse_array_index(int *a, int start, int end);
 void			display_stacks(int *a, int *b, int *len_a, int *len_b);
 void			transform_stack(t_input*input);
+void			sort_stack(t_input *input);
+int				find_nearer_of_chunk(t_stacks *stack, int bot, int top, void *rot);
 
 #endif
