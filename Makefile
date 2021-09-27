@@ -6,7 +6,7 @@
 #    By: avieira <avieira@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/14 11:51:16 by avieira           #+#    #+#              #
-#    Updated: 2021/09/25 11:58:26 by avieira          ###   ########.fr        #
+#    Updated: 2021/09/27 16:44:56 by avieira          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -92,7 +92,8 @@ fclean: clean
 	@(printf "$(STRT_STYLE)Fcleaning libft...\n$(END_STYLE)")
 	@make fclean -C sources/libft/
 	@(printf "$(STRT_STYLE)Fcleaning...\n$(END_STYLE)")
-	@($(RM) $(NAME))
+	@($(RM) $(NAME_C))
+	@($(RM) $(NAME_PS))
 	@(printf "$(STRT_STYLE)Done.\n$(END_STYLE)")
 
 re: fclean all

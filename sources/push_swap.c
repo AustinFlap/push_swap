@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/08 23:58:03 by avieira           #+#    #+#             */
-/*   Updated: 2021/09/25 01:28:55 by avieira          ###   ########.fr       */
+/*   Updated: 2021/09/27 16:41:23 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,4 @@ int				main(int ac, char **av)
 		transform_stack(&input);
 		display_stacks(input.stacks.a, input.stacks.b, input.stacks.len_a, input.stacks.len_b);
 	}
-	ft_printf("LOL\n");
 }
