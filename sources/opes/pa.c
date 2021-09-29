@@ -6,13 +6,18 @@
 /*   By: avieira <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 23:58:43 by avieira           #+#    #+#             */
-/*   Updated: 2021/04/27 00:14:51 by avieira          ###   ########.fr       */
+/*   Updated: 2021/09/29 13:47:05 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void	push_a(int *a, int *b, int *len_a, int *len_b)
+void	push_a(t_stacks *stacks, t_list *opes, char sorting, t_input *input)
 {
-	push(a, b, len_a, len_b);
+	t_opes	ope;
+
+	ope = pa;
+	push(stacks->a, stacks->b, stacks->len_a, stacks->len_b);
+	if (sorting)
+		add_ope(&ope, opes, input);
 }

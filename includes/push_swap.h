@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 21:20:18 by avieira           #+#    #+#             */
-/*   Updated: 2021/09/29 12:36:36 by avieira          ###   ########.fr       */
+/*   Updated: 2021/09/29 13:20:58 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,12 @@ typedef struct	s_input
 
 typedef struct	s_chunk
 {
-	void		(*rotate)(int *, int *);
+	int			size;
+	void		(*rotate)(t_stacks *, t_list *, char, t_input *);
 	int			min;
 	int			max;
+	int			min_value;
+	int			max_value;
 }				t_chunk;
 
 void			error(t_input *input);
@@ -67,17 +70,17 @@ void			get_stack(int ac, char **av, t_input *input);
 void			get_opes(t_input *input);
 void			exec_opes(t_input *input);
 void			check_stacks(int *a, int *len_a, int *len_b);
-void			swap_a(int *a, int *b, int *len_a, int *len_b);
-void			swap_b(int *a, int *b, int *len_a, int *len_b);
-void			swap_double(int *a, int *b, int *len_a, int *len_b);
-void			push_a(int *a, int *b, int *len_a, int *len_b);
-void			push_b(int *a, int *b, int *len_a, int *len_b);
-void			rotate_a(int *a, int *b, int *len_a, int *len_b);
-void			rotate_b(int *a, int *b, int *len_a, int *len_b);
-void			rotate_double(int *a, int *b, int *len_a, int *len_b);
-void			reverse_rotate_a(int *a, int *b, int *len_a, int *len_b);
-void			reverse_rotate_b(int *a, int *b, int *len_a, int *len_b);
-void			reverse_rotate_double(int *a, int *b, int *len_a, int *len_b);
+void			swap_a(t_stacks *stacks, t_list *opes, char sorting, t_input *input);
+void			swap_b(t_stacks *stacks, t_list *opes, char sorting, t_input *input);
+void			swap_double(t_stacks *stacks, t_list *opes, char sorting, t_input *input);
+void			push_a(t_stacks *stacks, t_list *opes, char sorting, t_input *input);
+void			push_b(t_stacks *stacks, t_list *opes, char sorting, t_input *input);
+void			rotate_a(t_stacks *stacks, t_list *opes, char sorting, t_input *input);
+void			rotate_b(t_stacks *stacks, t_list *opes, char sorting, t_input *input);
+void			rotate_double(t_stacks *stacks, t_list *opes, char sorting, t_input *input);
+void			reverse_rotate_a(t_stacks *stacks, t_list *opes, char sorting, t_input *input);
+void			reverse_rotate_b(t_stacks *stacks, t_list *opes, char sorting, t_input *input);
+void			reverse_rotate_double(t_stacks *stacks, t_list *opes, char sorting, t_input *input);
 void			swap(int *a, int *len_a);
 void			push(int *a, int *b, int *len_a, int *len_b);
 void			rotate(int *a, int *len_a);
@@ -87,5 +90,6 @@ void			display_stacks(int *a, int *b, int *len_a, int *len_b);
 void			transform_stack(t_input*input);
 void			sort_stack(t_input *input);
 void			find_nearer_of_chunk(t_stacks *stack, int bot, int top, t_chunk *chunk);
+void			add_ope(t_opes *ope, t_list *opes, t_input *input);
 
 #endif
