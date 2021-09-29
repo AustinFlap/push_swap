@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 21:20:18 by avieira           #+#    #+#             */
-/*   Updated: 2021/09/27 18:58:47 by avieira          ###   ########.fr       */
+/*   Updated: 2021/09/29 12:36:36 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 # define MAX_INT 2147483647
 # define MIN_INT -2147483648
-# define SIZE_CHUNK 5
+# define SIZE_CHUNK 2
 
 # include <stdio.h>
 
@@ -52,6 +52,13 @@ typedef struct	s_input
 	t_list		*opes;
 }				t_input;
 
+typedef struct	s_chunk
+{
+	void		(*rotate)(int *, int *);
+	int			min;
+	int			max;
+}				t_chunk;
+
 void			error(t_input *input);
 void			alloc_input(t_input *input, int ac);
 void			free_input(t_input *input);
@@ -79,6 +86,6 @@ void			reverse_array_index(int *a, int start, int end);
 void			display_stacks(int *a, int *b, int *len_a, int *len_b);
 void			transform_stack(t_input*input);
 void			sort_stack(t_input *input);
-int				find_nearer_of_chunk(t_stacks *stack, int bot, int top, void *rot);
+void			find_nearer_of_chunk(t_stacks *stack, int bot, int top, t_chunk *chunk);
 
 #endif
