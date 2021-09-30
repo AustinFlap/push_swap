@@ -6,11 +6,12 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 20..//13 13:36:23 by avieira           #+#    #+#             */
-/*   Updated: 20..//21 17:20:38 by avieira          ###   ########.fr       */
+/*   Updated: 2021/09/30 02:51:07 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
+#include <stdio.h>
 
 void	ft_lstadd_back(t_list **alst, t_list *new)
 {

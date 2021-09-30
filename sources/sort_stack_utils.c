@@ -6,19 +6,20 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 18:17:35 by avieira           #+#    #+#             */
-/*   Updated: 2021/09/29 13:49:22 by avieira          ###   ########.fr       */
+/*   Updated: 2021/09/30 04:26:36 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void		add_ope(t_opes *ope, t_list *opes, t_input *input)
+void		add_ope(t_opes *ope, t_input *input)
 {
 	t_list	*new_ope;
 
 	if (!(new_ope = ft_lstnew(ope)))
 		error(input);
-	ft_lstadd_back(&opes, new_ope);
+	ft_lstadd_back(&input->opes, new_ope);
+	display_stacks(input->stacks.a, input->stacks.b, input->stacks.len_a, input->stacks.len_b);
 }
 
 void		find_nearer_of_chunk(t_stacks *stack, int bot, int top, t_chunk *chunk)
@@ -41,7 +42,7 @@ void		find_nearer_of_chunk(t_stacks *stack, int bot, int top, t_chunk *chunk)
 			chunk->max = i;
 		i--;
 	}
-	if (chunk->min <= (*stack->len_a - chunk->max))
+	if (chunk->min < (*stack->len_a - chunk->max))
 		chunk->rotate = &rotate_a;
 	else
 		chunk->rotate = &reverse_rotate_a;

@@ -6,18 +6,22 @@
 /*   By: avieira <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 23:48:50 by avieira           #+#    #+#             */
-/*   Updated: 2021/09/29 13:16:10 by avieira          ###   ########.fr       */
+/*   Updated: 2021/09/30 04:06:05 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void	reverse_rotate_b(t_stacks *stacks, t_list *opes, char sorting, t_input *input)
+void	reverse_rotate_b(t_stacks *stacks, char sorting, t_input *input)
 {
-	t_opes ope;
+	t_opes *ope;
 
-	ope = rrb;
 	reverse_rotate(stacks->b, stacks->len_b);
 	if (sorting)
-		add_ope(&ope, opes, input);
+	{
+		if (!(ope = malloc(sizeof(t_opes))))
+			error(input);
+		*ope = rrb;
+		add_ope(ope, input);
+	}
 }
