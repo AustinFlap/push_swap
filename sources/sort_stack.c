@@ -6,11 +6,36 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 17:34:42 by avieira           #+#    #+#             */
-/*   Updated: 2021/09/30 04:49:45 by avieira          ###   ########.fr       */
+/*   Updated: 2021/09/30 05:56:35 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+void		rearange_b(t_stacks *stacks, t_input *input)
+{
+	int		i;
+	int		find;
+	int		min_delta;
+	int		delta;
+
+	if (*stacks->len_b < 3)
+		return ;
+	i = -1;
+	find = 0;
+	min_delta = *stacks->len_a + *stacks->len_b;
+	while (++i < *stacks->len_b)
+	{
+		delta = stacks->b[i] - *stacks->a;
+		if (delta < 0 && delta < min_delta)
+		{
+			find = i;
+			min_delta = delta;
+		}
+	}
+	while (find--)
+		rotate_b(stacks, 1, input);
+}
 
 void		sort_chunk(t_input *input, int bot, int top)
 {
@@ -26,14 +51,15 @@ void		sort_chunk(t_input *input, int bot, int top)
 	printf("bot : %d     top : %d\n", bot, top);
 	printf("stack[%d] = %d   stack[%d] = %d\n\n", chunk.min, input->stacks.a[chunk.min], chunk.max,input->stacks.a[chunk.max]);
 	while (*input->stacks.a != chunk.max_value && *input->stacks.a != chunk.min_value)
-	{
 		chunk.rotate(&input->stacks, 1, input);
-		sleep(3);
-	}i = -1;
+	i = -1;
 	while (++i < chunk.size)
 	{
 		if (*input->stacks.a >= bot && *input->stacks.a <= top)
+		{
+			rearange_b(&input->stacks, input);
 			push_b(&input->stacks, 1, input);
+		}
 		else
 			chunk.rotate(&input->stacks, 1, input);
 	}
