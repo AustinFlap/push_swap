@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 17:34:42 by avieira           #+#    #+#             */
-/*   Updated: 2021/09/30 15:21:57 by avieira          ###   ########.fr       */
+/*   Updated: 2021/09/30 16:28:45 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,16 @@ void		rearange_b(t_stacks *stacks, t_input *input)
 		}
 	}
 	rotate = &rotate_b;
-	if (find > (*stacks->len_b - 1) / 2)
+	if (find > (*stacks->len_b) / 2)
 	{
 		find = *stacks->len_b - find;
 		rotate = &reverse_rotate_b;
 	}
-	while (find--)
+	while (find-- > -1)
+	{
+		printf("stagner\n");
 		rotate(stacks, 1, input);
+	}
 }
 
 void		sort_chunk(t_input *input, int bot, int top)
