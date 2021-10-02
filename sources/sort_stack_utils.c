@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 18:17:35 by avieira           #+#    #+#             */
-/*   Updated: 2021/09/30 16:23:03 by avieira          ###   ########.fr       */
+/*   Updated: 2021/10/02 21:06:32 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@ void		add_ope(t_opes *ope, t_input *input)
 	if (!(new_ope = ft_lstnew(ope)))
 		error(input);
 	ft_lstadd_back(&input->opes, new_ope);
-	display_stacks(input->stacks.a, input->stacks.b, input->stacks.len_a, input->stacks.len_b);
-	sleep(1);
+	//display_stacks(input->stacks.a, input->stacks.b, input->stacks.len_a, input->stacks.len_b);
 }
 
 void		find_nearer_of_chunk(t_stacks *stack, int bot, int top, t_chunk *chunk)
