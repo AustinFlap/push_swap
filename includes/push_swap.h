@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 21:20:18 by avieira           #+#    #+#             */
-/*   Updated: 2021/10/02 21:15:51 by avieira          ###   ########.fr       */
+/*   Updated: 2021/10/03 13:39:43 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,5 +91,8 @@ void			transform_stack(t_input*input);
 void			sort_stack(t_input *input);
 void			find_nearer_of_chunk(t_stacks *stack, int bot, int top, t_chunk *chunk);
 void			add_ope(t_opes *ope, t_input *input);
+void			shift_b_before_push(t_stacks *stacks, t_input *input);
+void			define_chunk_order(int n_chunk, t_stacks *stacks, t_input *input, int *order);
+void			transform_order(int *order, int len);
 
 #endif

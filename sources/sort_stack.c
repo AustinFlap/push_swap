@@ -6,54 +6,49 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 17:34:42 by avieira           #+#    #+#             */
-/*   Updated: 2021/10/02 21:11:15 by avieira          ###   ########.fr       */
+/*   Updated: 2021/10/03 13:41:30 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int			get_find(t_stacks *stacks)
+void		get_find(int find[2], t_stacks *stacks)
 {
 	int		i;
 	int		min_delta[2];
 	int		delta;
-	int		find;
 
 	min_delta[0] = - (*stacks->len_b + *stacks->len_a);
 	min_delta[1] = (*stacks->len_b + *stacks->len_a);
 	i = -1;
-	find = -1;
 	while (++i < *stacks->len_b)
 	{
 		delta = stacks->b[i] - *stacks->a;
 		if (delta < 0 && delta > min_delta[0])
 		{
-			find = i;
+			find[0] = i;
 			min_delta[0] = delta;
 		}
-	}
-	i = -1;
-	if (find == -1)
-	{
-		while (++i < *stacks->len_b)
+		else if (delta > 0 && delta < min_delta[1])
 		{
-			delta = stacks->b[i] - *stacks->a;
-			if (delta > 0 && delta < min_delta[1])
-			{
-				find = i + 1;
-				min_delta[1] = delta;
-			}
+			find[1] = i + 1;
+			min_delta[1] = delta;
 		}
 	}
-	return (find);
 }
 
 void		rearange_b(t_stacks *stacks, t_input *input)
 {
 	void	(*rotate)(t_stacks *, char, t_input *);
+	int		find[2];
 	int		found;
 
-	found = get_find(stacks);
+	find[0] = -1;
+	find[1] = -1;
+	get_find(find, stacks);
+	found = find[0];
+	if (found == -1)
+		found = find[1];
 	rotate = &rotate_b;
 	if (found > (*stacks->len_b) / 2)
 	{
@@ -95,15 +90,19 @@ void		sort_stack(t_input* input)
 {
 	int		n_chunk;
 	int		i;
+	int		*order;
 
 	n_chunk = *input->stacks.len_a / SIZE_CHUNK;
 	if (*input->stacks.len_a % SIZE_CHUNK)
 		n_chunk++;
+	if (!(order = malloc(sizeof(int) * n_chunk)))
+		error(input);
+	define_chunk_order(n_chunk, &input->stacks, input, order);
 	i = -1;
 	while (++i < n_chunk)
 		sort_chunk(input, i * SIZE_CHUNK, ((i + 1) * SIZE_CHUNK - 1));
-	while (*input->stacks.b != *input->stacks.len_b - 1)
-		rotate_b(&input->stacks, 1, input);
+	shift_b_before_push(&input->stacks, input);
 	while (*input->stacks.len_b)
 		push_a(&input->stacks, 1, input);
+	free(order);
 }
