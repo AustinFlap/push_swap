@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 18:17:35 by avieira           #+#    #+#             */
-/*   Updated: 2021/10/03 13:40:44 by avieira          ###   ########.fr       */
+/*   Updated: 2021/10/03 14:39:40 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void		define_chunk_order(int n_chunk, t_stacks *stacks, t_input *input, int *ord
 	t_chunk *chunk_order;
 	int			i;
 
-	if (!(chunk_order = malloc(sizeof(t_chunk) * n_chunk)))
+	if (!(chunk_order = ft_calloc(n_chunk, sizeof(int))))
 		error(input);
 	i = -1;
 	while (++i < n_chunk)

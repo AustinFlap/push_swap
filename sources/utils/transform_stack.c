@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 01:29:36 by avieira           #+#    #+#             */
-/*   Updated: 2021/10/03 13:33:48 by avieira          ###   ########.fr       */
+/*   Updated: 2021/10/03 14:46:05 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,21 +34,21 @@ int			get_min(int *transform, int *list, int len)
 
 void		transform_order(int *order, int len)
 {
-	int		*transform;
+	int		*transform_order;
 	int		i_min;
 	int		i;
 	
-	if (!(transform = ft_calloc(len, sizeof(int))))
+	if (!(transform_order = ft_calloc(len, sizeof(int))))
 		return ;
-	i_min = get_min(transform, order, len);
+	i_min = get_min(transform_order, order, len);
 	i = 0;
 	while (i_min != -1)
 	{
-		transform[i_min] = 1;
+		transform_order[i_min] = 1;
 		order[i_min] = i++;
-		i_min = get_min(transform, order, len);
+		i_min = get_min(transform_order, order, len);
 	}
-	free(transform);
+	free(transform_order);
 }
 
 void		transform_stack(t_input *input)
@@ -71,5 +71,4 @@ void		transform_stack(t_input *input)
 		list[i_min] = i++;
 		i_min = get_min(transform, list, len);
 	}
-	free(transform);
 }

@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 17:34:42 by avieira           #+#    #+#             */
-/*   Updated: 2021/10/03 13:41:30 by avieira          ###   ########.fr       */
+/*   Updated: 2021/10/03 14:20:43 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@ void		sort_stack(t_input* input)
 	int		n_chunk;
 	int		i;
 	int		*order;
+	int		i_order;
 
 	n_chunk = *input->stacks.len_a / SIZE_CHUNK;
 	if (*input->stacks.len_a % SIZE_CHUNK)
@@ -98,11 +99,25 @@ void		sort_stack(t_input* input)
 	if (!(order = malloc(sizeof(int) * n_chunk)))
 		error(input);
 	define_chunk_order(n_chunk, &input->stacks, input, order);
-	i = -1;
-	while (++i < n_chunk)
+	i_order = n_chunk - 1;
+
+	/*int *temp;
+	temp = order;
+	int j;
+	j = -1;
+	while (++j < n_chunk)
+		printf("%d\n", order[j]);
+*/
+
+	while (i_order > -1)
+	{
+		i = 0;
+		while (i_order != order[i])
+			i++;
 		sort_chunk(input, i * SIZE_CHUNK, ((i + 1) * SIZE_CHUNK - 1));
+		i_order--;
+	}
 	shift_b_before_push(&input->stacks, input);
 	while (*input->stacks.len_b)
 		push_a(&input->stacks, 1, input);
-	free(order);
 }
