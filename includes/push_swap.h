@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 21:20:18 by avieira           #+#    #+#             */
-/*   Updated: 2021/10/03 14:14:32 by avieira          ###   ########.fr       */
+/*   Updated: 2021/10/03 14:53:26 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 # define MAX_INT 2147483647
 # define MIN_INT -2147483648
-# define SIZE_CHUNK 30
+# define SIZE_CHUNK 20
 
 # include <stdio.h>
 

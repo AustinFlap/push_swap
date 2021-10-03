@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 17:34:42 by avieira           #+#    #+#             */
-/*   Updated: 2021/10/03 14:20:43 by avieira          ###   ########.fr       */
+/*   Updated: 2021/10/03 14:48:19 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,15 +100,6 @@ void		sort_stack(t_input* input)
 		error(input);
 	define_chunk_order(n_chunk, &input->stacks, input, order);
 	i_order = n_chunk - 1;
-
-	/*int *temp;
-	temp = order;
-	int j;
-	j = -1;
-	while (++j < n_chunk)
-		printf("%d\n", order[j]);
-*/
-
 	while (i_order > -1)
 	{
 		i = 0;
