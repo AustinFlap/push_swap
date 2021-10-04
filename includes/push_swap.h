@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 21:20:18 by avieira           #+#    #+#             */
-/*   Updated: 2021/10/04 02:59:06 by avieira          ###   ########.fr       */
+/*   Updated: 2021/10/04 12:49:55 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,5 +94,6 @@ void			shift_b_before_push(t_stacks *stacks, t_input *input);
 void			define_chunk_order(int n_chunk, t_stacks *stacks, t_input *input, int *order);
 void			transform_order(int *order, int len);
 int				is_sort(int *stack, int len);
+void			sort_little(t_input *input, t_stacks *stacks);
 
 #endif

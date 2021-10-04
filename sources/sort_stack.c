@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 17:34:42 by avieira           #+#    #+#             */
-/*   Updated: 2021/10/04 02:58:34 by avieira          ###   ########.fr       */
+/*   Updated: 2021/10/04 12:46:42 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,8 @@ void		sort_chunk(t_input *input, int bot, int top)
 	chunk.size = 1 + chunk.max - chunk.min;
 	chunk.min_value = input->stacks.a[chunk.min];
 	chunk.max_value = input->stacks.a[chunk.max];
-	while (*input->stacks.a != chunk.max_value && *input->stacks.a != chunk.min_value)
+	while (*input->stacks.a != chunk.max_value &&
+											*input->stacks.a != chunk.min_value)
 		chunk.rotate(&input->stacks, 1, input);
 	i = -1;
 	while (++i < chunk.size)
@@ -86,15 +87,13 @@ void		sort_chunk(t_input *input, int bot, int top)
 	}
 }
 
-void		sort_stack(t_input* input)
+void		sort_big(t_input *input)
 {
 	int		n_chunk;
 	int		i;
 	int		*order;
 	int		i_order;
 
-	if (is_sort(input->stacks.a, *input->stacks.len_a))
-		return ;
 	n_chunk = *input->stacks.len_a / SIZE_CHUNK;
 	if (*input->stacks.len_a % SIZE_CHUNK)
 		n_chunk++;
@@ -113,4 +112,15 @@ void		sort_stack(t_input* input)
 	shift_b_before_push(&input->stacks, input);
 	while (*input->stacks.len_b)
 		push_a(&input->stacks, 1, input);
+}
+
+
+void		sort_stack(t_input* input)
+{
+	if (is_sort(input->stacks.a, *input->stacks.len_a))
+		return ;
+	if (*input->stacks.len_a < 6)
+		sort_little(input, &input->stacks);
+	else
+		sort_big(input);
 }
