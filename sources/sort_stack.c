@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 17:34:42 by avieira           #+#    #+#             */
-/*   Updated: 2021/10/03 14:48:19 by avieira          ###   ########.fr       */
+/*   Updated: 2021/10/04 02:58:34 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,8 @@ void		sort_stack(t_input* input)
 	int		*order;
 	int		i_order;
 
+	if (is_sort(input->stacks.a, *input->stacks.len_a))
+		return ;
 	n_chunk = *input->stacks.len_a / SIZE_CHUNK;
 	if (*input->stacks.len_a % SIZE_CHUNK)
 		n_chunk++;

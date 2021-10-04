@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 18:17:35 by avieira           #+#    #+#             */
-/*   Updated: 2021/10/03 14:52:47 by avieira          ###   ########.fr       */
+/*   Updated: 2021/10/04 02:57:10 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,22 @@ void		add_ope(t_opes *ope, t_input *input)
 		error(input);
 	ft_lstadd_back(&input->opes, new_ope);
 	//display_stacks(input->stacks.a, input->stacks.b, input->stacks.len_a, input->stacks.len_b);
+}
+
+int			is_sort(int *stack, int len)
+{
+	int		temp;
+	int		i;
+
+	i = 0;
+	temp = stack[i];
+	while (++i < len)
+	{
+		if (stack[i] < temp)
+			return (0);
+		temp = stack[i];
+	}
+	return (1);
 }
 
 void		find_nearer_of_chunk(t_stacks *stack, int bot, int top, t_chunk *chunk)

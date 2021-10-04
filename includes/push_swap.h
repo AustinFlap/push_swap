@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 21:20:18 by avieira           #+#    #+#             */
-/*   Updated: 2021/10/03 14:53:26 by avieira          ###   ########.fr       */
+/*   Updated: 2021/10/04 02:59:06 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 # define MAX_INT 2147483647
 # define MIN_INT -2147483648
 # define SIZE_CHUNK 20
-
 # include <stdio.h>
 
 typedef enum	e_opes
@@ -94,5 +93,6 @@ void			add_ope(t_opes *ope, t_input *input);
 void			shift_b_before_push(t_stacks *stacks, t_input *input);
 void			define_chunk_order(int n_chunk, t_stacks *stacks, t_input *input, int *order);
 void			transform_order(int *order, int len);
+int				is_sort(int *stack, int len);
 
 #endif
