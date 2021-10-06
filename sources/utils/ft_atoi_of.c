@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 20:44:21 by avieira           #+#    #+#             */
-/*   Updated: 2021/04/17 20:30:09 by avieira          ###   ########.fr       */
+/*   Updated: 2021/10/06 19:47:16 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ int		ft_atoi_of(const char *nptr, t_input *input)
 		}
 		else if (*temp == '-')
 			nb *= -1;
+		if (nb > MAX_INT)
+			error(input);
 	}
 	if (nb < MIN_INT || nb > MAX_INT)
 		error(input);
