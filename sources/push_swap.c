@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/08 23:58:03 by avieira           #+#    #+#             */
-/*   Updated: 2021/10/09 05:45:54 by avieira          ###   ########.fr       */
+/*   Updated: 2021/10/09 16:39:20 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,35 @@ void	set_ope_strings(char *opes[11])
 	opes[10] = "rrr";
 }
 
+void	join_opes(t_list *opes, int ope_a, int ope_b, int ope_join)
+{
+	t_list	*tmp1;
+	t_list	*tmp2;
+
+	tmp1 = opes;
+	while (tmp1)
+	{
+		if (*(int *)tmp1->content == ope_a || *(int *)tmp1->content == ope_b)
+		{
+			tmp2 = tmp1;
+			while ((*(int *)tmp1->content == *(int *)tmp2->content
+					|| *(int *)tmp1->content == rr) && tmp1->next)
+				tmp1 = tmp1->next;
+			if ((*(int *)tmp1->content == ope_a || *(int *)tmp1->content
+					== ope_b) && *(int *)tmp1->content != *(int *)tmp2->content)
+			{
+				*(int *)tmp1->content = ope_join;
+				tmp1 = tmp2->next;
+				del_ope_one(&opes, tmp2);
+			}
+			else
+				tmp1 = tmp1->next;
+		}
+		else
+			tmp1 = tmp1->next;
+	}
+}
+
 int	main(int ac, char **av)
 {
 	t_input		input;
@@ -40,6 +69,8 @@ int	main(int ac, char **av)
 		get_stack(ac, av, &input);
 		transform_stack(&input);
 		sort_stack(&input);
+		join_opes(input.opes, ra, rb, rr);
+		join_opes(input.opes, rra, rrb, rrr);
 		temp = input.opes;
 		while (temp)
 		{

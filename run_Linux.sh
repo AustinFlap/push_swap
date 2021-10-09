@@ -1,6 +1,7 @@
 make
 echo
 echo "PART 1: Memory leaks"
+ARG=`ruby -e "puts (1..500).to_a.shuffle.join(' ')"`; valgrind ./push_swap $ARG | ./checker_linux $ARG
 valgrind ./push_swap 5 1
 valgrind ./push_swap 5 1 5
 echo
