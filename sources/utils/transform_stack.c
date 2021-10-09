@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 01:29:36 by avieira           #+#    #+#             */
-/*   Updated: 2021/10/03 14:46:05 by avieira          ###   ########.fr       */
+/*   Updated: 2021/10/09 04:23:03 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,5 @@ void		transform_stack(t_input *input)
 		list[i_min] = i++;
 		i_min = get_min(transform, list, len);
 	}
+	free(transform);
 }

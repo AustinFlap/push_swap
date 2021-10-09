@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 20..//13 12:45:16 by avieira           #+#    #+#             */
-/*   Updated: 20..//13 14:40:36 by avieira          ###   ########.fr       */
+/*   Updated: 2021/10/09 03:57:49 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_list	*ft_lstnew(void *content)
 {
 	t_list		*new;
 
-	if (!(new = malloc(sizeof(new))))
+	if (!(new = malloc(sizeof(t_list))))
 		return (NULL);
 	new->content = content;
 	new->next = NULL;

@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 17:34:42 by avieira           #+#    #+#             */
-/*   Updated: 2021/10/04 12:46:42 by avieira          ###   ########.fr       */
+/*   Updated: 2021/10/09 04:23:46 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,7 @@ void		sort_big(t_input *input)
 	shift_b_before_push(&input->stacks, input);
 	while (*input->stacks.len_b)
 		push_a(&input->stacks, 1, input);
+	free(order);
 }
 
 
