@@ -6,13 +6,13 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/12 14:17:05 by avieira           #+#    #+#             */
-/*   Updated: 2021/04/14 13:42:07 by avieira          ###   ########.fr       */
+/*   Updated: 2021/10/09 14:12:05 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static int			def_conversion(const char *str, const char *set)
+static int	def_conversion(const char *str, const char *set)
 {
 	int				i;
 
@@ -28,13 +28,14 @@ static int			def_conversion(const char *str, const char *set)
 	return (-1);
 }
 
-static char			*get_arg(char format, va_list ap)
+static char	*get_arg(char format, va_list ap)
 {
 	char			*arg;
 
 	if (format == 'c')
 	{
-		if (!(arg = ft_calloc(2, sizeof(char))))
+		arg = ft_calloc(2, sizeof(char));
+		if (!arg)
 			return (NULL);
 		*arg = va_arg(ap, int);
 		return (arg);
@@ -54,7 +55,7 @@ static char			*get_arg(char format, va_list ap)
 	return (NULL);
 }
 
-static t_flag		def_flag(const char *str, char format, va_list ap)
+static t_flag	def_flag(const char *str, char format, va_list ap)
 {
 	t_flag			flag;
 
@@ -67,9 +68,12 @@ static t_flag		def_flag(const char *str, char format, va_list ap)
 		flag.width *= -1;
 		flag.minus = 1;
 	}
-	flag.zero = (flag.minus || ((format == 'd' || format == 'i' || format == 'p'
-					|| format == 'u' || format == 'x' || format == 'X')
-					&& flag.precision > -1)) ? 0 : zero(str, format);
+	if (flag.minus || ((format == 'd' || format == 'i' || format == 'p'
+				|| format == 'u' || format == 'x' || format == 'X')
+			&& flag.precision > -1))
+		flag.zero = 0;
+	else
+		zero(str, format);
 	return (flag);
 }
 
@@ -88,7 +92,8 @@ static const char	*conversion(const char *str, va_list ap, int *ret)
 	f[6] = &xx;
 	f[7] = &xx;
 	f[8] = &mod;
-	if ((i = def_conversion(str, set)) != -1)
+	i = def_conversion(str, set);
+	if (i != -1)
 	{
 		f[i](def_flag(str, set[i], ap), ret, get_arg(set[i], ap));
 		str++;
@@ -98,7 +103,7 @@ static const char	*conversion(const char *str, va_list ap, int *ret)
 	return (str + 1);
 }
 
-int					ft_printf(const char *str, ...)
+int	ft_printf(const char *str, ...)
 {
 	va_list			ap;
 	int				ret;

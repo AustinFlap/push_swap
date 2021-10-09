@@ -6,13 +6,13 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 01:29:36 by avieira           #+#    #+#             */
-/*   Updated: 2021/10/09 04:23:03 by avieira          ###   ########.fr       */
+/*   Updated: 2021/10/09 13:12:44 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-int			get_min(int *transform, int *list, int len)
+int	get_min(int *transform, int *list, int len)
 {
 	int		i;
 	int		i_min;
@@ -32,13 +32,14 @@ int			get_min(int *transform, int *list, int len)
 	return (i_min);
 }
 
-void		transform_order(int *order, int len)
+void	transform_order(int *order, int len)
 {
 	int		*transform_order;
 	int		i_min;
 	int		i;
-	
-	if (!(transform_order = ft_calloc(len, sizeof(int))))
+
+	transform_order = ft_calloc(len, sizeof(int));
+	if (!transform_order)
 		return ;
 	i_min = get_min(transform_order, order, len);
 	i = 0;
@@ -51,7 +52,7 @@ void		transform_order(int *order, int len)
 	free(transform_order);
 }
 
-void		transform_stack(t_input *input)
+void	transform_stack(t_input *input)
 {
 	int		*list;
 	int		len;
@@ -61,7 +62,8 @@ void		transform_stack(t_input *input)
 
 	list = input->stacks.a;
 	len = *input->stacks.len_a;
-	if (!(transform = ft_calloc(len, sizeof(int))))
+	transform = ft_calloc(len, sizeof(int));
+	if (!transform)
 		return ;
 	i_min = get_min(transform, list, len);
 	i = 0;

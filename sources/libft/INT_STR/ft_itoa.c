@@ -6,15 +6,15 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 20..//07 16:44:55 by avieira           #+#    #+#             */
-/*   Updated: 2021/04/14 13:32:20 by avieira          ###   ########.fr       */
+/*   Updated: 2021/10/09 13:21:33 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-static int		get_lenght(long int n)
+static int	get_lenght(long int n)
 {
-	int len;
+	int	len;
 
 	len = 1;
 	if (n < 0)
@@ -30,16 +30,18 @@ static int		get_lenght(long int n)
 	return (len);
 }
 
-char			*ft_itoa(long int n)
+char	*ft_itoa(long int n)
 {
 	long int	num;
 	char		*number;
 	int			len;
 
 	num = n;
-	num = (n < 0) ? num * -1 : num;
+	if (n < 0)
+		num = num * -1;
 	len = get_lenght(n);
-	if (!(number = malloc(sizeof(char) * (len + 1))))
+	number = malloc(sizeof(char) * (len + 1));
+	if (!number)
 		return (NULL);
 	number += len;
 	*number = 0;

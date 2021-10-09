@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 20..//10 11:40:53 by avieira           #+#    #+#             */
-/*   Updated: 20..//10 12:14:18 by avieira          ###   ########.fr       */
+/*   Updated: 2021/10/09 13:41:44 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	char d;
+	char	d;
 
 	d = c;
 	while (*s)

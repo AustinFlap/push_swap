@@ -6,7 +6,7 @@
 /*   By: avieira <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 21:45:14 by avieira           #+#    #+#             */
-/*   Updated: 2021/04/27 01:49:47 by avieira          ###   ########.fr       */
+/*   Updated: 2021/10/09 13:10:29 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,18 @@
 
 void	reverse_array_index(int *a, int start, int end)
 {
-	int	tmp[end - start + 1];
+	int	*tmp;
 	int	i;
 
+	tmp = malloc(sizeof(int) * (end - start + 1));
+	if (!tmp)
+		return ;
 	i = -1;
 	while (++i < end - start + 1)
 		tmp[i] = a[i + start];
 	while (--i > -1)
 		a[end - i] = tmp[i];
+	free(tmp);
 }
 
 void	rotate(int *a, int *len_a)

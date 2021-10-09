@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 20..//10 14:12:38 by avieira           #+#    #+#             */
-/*   Updated: 20..//21 16:22:30 by avieira          ###   ########.fr       */
+/*   Updated: 2021/10/09 13:48:38 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static size_t	ft_strl(const char *s)
 {
-	int l;
+	int	l;
 
 	if (!s)
 		return (0);
@@ -24,9 +24,9 @@ static size_t	ft_strl(const char *s)
 	return (l);
 }
 
-size_t			ft_strlcpy(char *dst, const char *src, size_t dstsize)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	if (dstsize && src && dst)

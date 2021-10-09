@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 20..//10 16:41:44 by avieira           #+#    #+#             */
-/*   Updated: 20..//18 14:09:47 by avieira          ###   ########.fr       */
+/*   Updated: 2021/10/09 13:14:56 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	ft_puts_fd(char *s, int fd)
 		ft_putc_fd(*s++, fd);
 }
 
-void		ft_putendl_fd(char *s, int fd)
+void	ft_putendl_fd(char *s, int fd)
 {
 	if (s)
 	{

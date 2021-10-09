@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 20..//07 14:17:37 by avieira           #+#    #+#             */
-/*   Updated: 20..//21 17:12:34 by avieira          ###   ########.fr       */
+/*   Updated: 2021/10/09 13:40:38 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static size_t	ft_strl(const char *s)
 {
-	int l;
+	int	l;
 
 	l = 0;
 	while (*s++)
@@ -22,9 +22,9 @@ static size_t	ft_strl(const char *s)
 	return (l);
 }
 
-static int		check_set(char c, char const *set)
+static int	check_set(char c, char const *set)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (set[i])
@@ -36,7 +36,7 @@ static int		check_set(char c, char const *set)
 	return (0);
 }
 
-char			*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	int		len;
 	int		start;
@@ -54,7 +54,8 @@ char			*ft_strtrim(char const *s1, char const *set)
 	}
 	while (check_set(s1[start + len - 1], set) && len > 0)
 		len--;
-	if (!(s = malloc(sizeof(char) * (len + 1))))
+	s = malloc(sizeof(char) * (len + 1));
+	if (!s)
 		return (NULL);
 	i = -1;
 	while (++i < len)

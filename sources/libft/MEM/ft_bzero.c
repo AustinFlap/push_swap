@@ -6,15 +6,15 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 20..//08 19:34:47 by avieira           #+#    #+#             */
-/*   Updated: 20..//08 19:47:03 by avieira          ###   ########.fr       */
+/*   Updated: 2021/10/09 13:15:37 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-int		ft_bzero(void *s, size_t n)
+int	ft_bzero(void *s, size_t n)
 {
-	unsigned char *temp;
+	unsigned char	*temp;
 
 	temp = s;
 	while (n--)

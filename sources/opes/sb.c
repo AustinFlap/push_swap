@@ -6,7 +6,7 @@
 /*   By: avieira <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 23:58:43 by avieira           #+#    #+#             */
-/*   Updated: 2021/09/30 04:06:28 by avieira          ###   ########.fr       */
+/*   Updated: 2021/10/09 13:07:55 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,13 @@
 
 void	swap_b(t_stacks *stacks, char sorting, t_input *input)
 {
-	t_opes *ope;
+	t_opes	*ope;
 
 	swap(stacks->b, stacks->len_b);
 	if (sorting)
 	{
-		if (!(ope = malloc(sizeof(t_opes))))
+		ope = malloc(sizeof(t_opes));
+		if (!ope)
 			error(input);
 		*ope = sb;
 		add_ope(ope, input);

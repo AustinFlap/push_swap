@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/12 14:12:37 by avieira           #+#    #+#             */
-/*   Updated: 2020/02/02 19:41:13 by avieira          ###   ########.fr       */
+/*   Updated: 2021/10/09 14:17:51 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <unistd.h>
 # include <stdarg.h>
 
-typedef struct	s_flag
+typedef struct s_flag
 {
 	int			width;
 	int			precision;

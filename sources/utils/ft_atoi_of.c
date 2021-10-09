@@ -6,22 +6,21 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 20:44:21 by avieira           #+#    #+#             */
-/*   Updated: 2021/10/06 19:47:16 by avieira          ###   ########.fr       */
+/*   Updated: 2021/10/09 13:11:25 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-int		ft_atoi_of(const char *nptr, t_input *input)
+int	ft_atoi_of(const char *nptr, t_input *input)
 {
-	const char		*temp;
+	const char	*temp;
 	long int	nb;
-	int				u;
+	int			u;
 
 	temp = nptr;
 	u = 1;
 	nb = 0;
-
 	while (*temp)
 		temp++;
 	while (temp != nptr)

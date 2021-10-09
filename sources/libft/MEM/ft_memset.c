@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 20..//08 17:36:13 by avieira           #+#    #+#             */
-/*   Updated: 20..//08 19:48:30 by avieira          ###   ########.fr       */
+/*   Updated: 2021/10/09 13:15:54 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	*ft_memset(void *b, int c, size_t len)
 {
-	unsigned char *temp;
-	unsigned char d;
+	unsigned char	*temp;
+	unsigned char	d;
 
 	d = c;
 	temp = b;

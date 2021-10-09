@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 18:19:50 by avieira           #+#    #+#             */
-/*   Updated: 2021/04/14 13:41:35 by avieira          ###   ########.fr       */
+/*   Updated: 2021/10/09 14:07:56 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ void	u(t_flag flag, int *ret, char *arg)
 		return ;
 	}
 	size = ft_strlen(arg);
-	if (!(print = alloc_print(max(size, flag.precision), 1)))
+	print = alloc_print(max(size, flag.precision), 1);
+	if (!print)
 		return ;
 	ft_memcpy(print + max(size, flag.precision) - size, arg, size);
 	write_conversion(ret, print, flag);
@@ -44,7 +45,8 @@ void	xx(t_flag flag, int *ret, char *arg)
 		return ;
 	}
 	size = ft_strlen(arg);
-	if (!(print = alloc_print(max(size, flag.precision), 1)))
+	print = alloc_print(max(size, flag.precision), 1);
+	if (!print)
 		return ;
 	ft_memcpy(print + max(size, flag.precision) - size, arg, size);
 	if (flag.format == 'X')

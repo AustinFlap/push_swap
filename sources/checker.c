@@ -6,13 +6,13 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 21:23:18 by avieira           #+#    #+#             */
-/*   Updated: 2021/10/09 04:05:04 by avieira          ###   ########.fr       */
+/*   Updated: 2021/10/09 13:01:40 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int		main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	t_input	input;
 

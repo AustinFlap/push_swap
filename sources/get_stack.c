@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 21:23:18 by avieira           #+#    #+#             */
-/*   Updated: 2021/04/27 02:13:22 by avieira          ###   ########.fr       */
+/*   Updated: 2021/10/09 13:02:48 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	get_stack(int ac, char **av, t_input *input)
 {
 	int	i;
 	int	j;
-	int *temp;
+	int	*temp;
 
 	i = 0;
 	temp = input->stacks.a;
@@ -35,8 +35,8 @@ void	get_stack(int ac, char **av, t_input *input)
 		j = -1;
 		while (av[i][++j])
 		{
-			if (!(ft_isdigit(av[i][j]) || (av[i][j] == '-' && !j &&
-																av[i][j + 1])))
+			if (!(ft_isdigit(av[i][j]) || (av[i][j] == '-' && !j
+				&& av[i][j + 1])))
 				error(input);
 		}
 		*temp = ft_atoi_of(av[i], input);

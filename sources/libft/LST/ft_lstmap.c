@@ -6,13 +6,13 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 20..//13 14:25:33 by avieira           #+#    #+#             */
-/*   Updated: 20..//18 17:48:22 by avieira          ###   ########.fr       */
+/*   Updated: 2021/10/09 13:39:11 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-static void		*lstclear(t_list **lst, void (*del)(void *))
+static void	*lstclear(t_list **lst, void (*del)(void *))
 {
 	t_list	*temp;
 
@@ -30,16 +30,27 @@ static void		*lstclear(t_list **lst, void (*del)(void *))
 	return (NULL);
 }
 
-t_list			*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+void	*alloc_new_lst(t_list *lst, t_list **new_lst)
 {
-	t_list *new_lst;
-	t_list *a;
-	t_list *b;
-
-	new_lst = NULL;
+	*new_lst = NULL;
 	if (lst)
-		if (!(new_lst = malloc(sizeof(t_list *))))
+	{
+		*new_lst = malloc(sizeof(t_list *));
+		if (!*new_lst)
 			return (NULL);
+	}
+	return (*new_lst);
+}
+
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+{
+	t_list	*new_lst;
+	t_list	*a;
+	t_list	*b;
+
+	alloc_new_lst(lst, &new_lst);
+	if (!new_lst)
+		return (NULL);
 	a = new_lst;
 	b = new_lst;
 	while (lst)
@@ -48,7 +59,8 @@ t_list			*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		a->content = (*f)(lst->content);
 		if (lst->next)
 		{
-			if (!(b = malloc(sizeof(b))))
+			b = malloc(sizeof(b));
+			if (!b)
 				return (lstclear(&new_lst, del));
 			a->next = b;
 		}

@@ -6,13 +6,13 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/12 16:47:34 by avieira           #+#    #+#             */
-/*   Updated: 2021/04/14 13:41:49 by avieira          ###   ########.fr       */
+/*   Updated: 2021/10/09 14:04:59 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-void		write_conversion(int *ret, char *arg, t_flag flag)
+void	write_conversion(int *ret, char *arg, t_flag flag)
 {
 	int		size;
 	int		len;
@@ -21,8 +21,11 @@ void		write_conversion(int *ret, char *arg, t_flag flag)
 	size = ft_strlen(arg);
 	if (flag.format == 'c' && *arg == 0)
 		size++;
-	len = (size > flag.width) ? size : flag.width;
-	if (!(print = alloc_print(len + 1, flag.zero)))
+	len = flag.width;
+	if (size > flag.width)
+		len = size;
+	print = alloc_print(len + 1, flag.zero);
+	if (!print)
 		return ;
 	if (flag.minus)
 		ft_memcpy(print, arg, size);
@@ -37,13 +40,13 @@ void		write_conversion(int *ret, char *arg, t_flag flag)
 	free(print);
 }
 
-void		c(t_flag flag, int *ret, char *arg)
+void	c(t_flag flag, int *ret, char *arg)
 {
 	write_conversion(ret, arg, flag);
 	free(arg);
 }
 
-void		s(t_flag flag, int *ret, char *arg)
+void	s(t_flag flag, int *ret, char *arg)
 {
 	int		size;
 	char	*print;
@@ -51,9 +54,10 @@ void		s(t_flag flag, int *ret, char *arg)
 	if (!arg)
 		arg = "(null)";
 	size = ft_strlen(arg);
-	size = (size > flag.precision && flag.precision > -1) ?
-			flag.precision : size;
-	if (!(print = ft_calloc(size + 1, sizeof(char))))
+	if (size > flag.precision && flag.precision > -1)
+		size = flag.precision;
+	print = ft_calloc(size + 1, sizeof(char));
+	if (!print)
 		return ;
 	ft_memcpy(print, arg, size);
 	print[size] = 0;
@@ -61,7 +65,7 @@ void		s(t_flag flag, int *ret, char *arg)
 	free(print);
 }
 
-void		p(t_flag flag, int *ret, char *arg)
+void	p(t_flag flag, int *ret, char *arg)
 {
 	int					size;
 	char				*print;
@@ -73,7 +77,8 @@ void		p(t_flag flag, int *ret, char *arg)
 		return ;
 	}
 	size = ft_strlen(arg) - 2;
-	if (!(print = alloc_print(max(size, flag.precision) + 2, 1)))
+	print = alloc_print(max(size, flag.precision) + 2, 1);
+	if (!print)
 		return ;
 	ft_memcpy(print + max(size, flag.precision) - size + 2, arg + 2, size);
 	ft_memcpy(print, "0x", 2);
@@ -82,7 +87,7 @@ void		p(t_flag flag, int *ret, char *arg)
 	free(arg);
 }
 
-void		di(t_flag flag, int *ret, char *arg)
+void	di(t_flag flag, int *ret, char *arg)
 {
 	char	*print;
 	int		size;
@@ -94,9 +99,12 @@ void		di(t_flag flag, int *ret, char *arg)
 		write_conversion(ret, "", flag);
 		return ;
 	}
-	neg = (*arg == '-') ? 1 : 0;
+	neg = 0;
+	if (*arg == '-')
+		neg = 1;
 	size = ft_strlen(arg) - neg;
-	if (!(print = alloc_print(max(size, flag.precision) + neg, 1)))
+	print = alloc_print(max(size, flag.precision) + neg, 1);
+	if (!print)
 		return ;
 	ft_memcpy(print + max(size, flag.precision) - size + neg, arg + neg, size);
 	if (neg)

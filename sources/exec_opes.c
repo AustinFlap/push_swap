@@ -6,7 +6,7 @@
 /*   By: avieira <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 00:22:55 by avieira           #+#    #+#             */
-/*   Updated: 2021/09/30 14:12:11 by avieira          ###   ########.fr       */
+/*   Updated: 2021/10/09 13:02:07 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ void	display_stacks(int *a, int *b, int *len_a, int *len_b)
 
 void	exec_opes(t_input *input)
 {
-	void	(*f[11])(t_stacks *, char, t_input *);
-	t_list	*temp;
-	t_stacks *stack;
+	void		(*f[11])(t_stacks *, char, t_input *);
+	t_list		*temp;
+	t_stacks	*stack;
 
 	f[0] = &swap_a;
 	f[1] = &swap_b;
@@ -55,7 +55,6 @@ void	exec_opes(t_input *input)
 	while (temp)
 	{
 		f[*((int *)temp->content)](stack, 0, input);
-		//display_stacks(stack->a, stack->b, stack->len_a, stack->len_b);
 		temp = temp->next;
 	}
 }

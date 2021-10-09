@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 20..//08 19:50:05 by avieira           #+#    #+#             */
-/*   Updated: 20..//17 18:38:37 by avieira          ###   ########.fr       */
+/*   Updated: 2021/10/09 13:18:41 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,13 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 		return (NULL);
 	t_dst = dst;
 	t_src = src;
-	p_diff = (t_dst > t_src) ? -1 : 1;
-	i = (t_dst > t_src) ? len - 1 : 0;
+	p_diff = 1;
+	i = 0;
+	if (t_dst > t_src)
+	{
+		i = len - 1;
+		p_diff = -1;
+	}
 	while ((size_t)i < len && i > -1)
 	{
 		t_dst[i] = t_src[i];

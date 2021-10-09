@@ -6,13 +6,13 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 00:59:03 by avieira           #+#    #+#             */
-/*   Updated: 2021/04/14 13:41:59 by avieira          ###   ########.fr       */
+/*   Updated: 2021/10/09 14:06:44 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int		minus(const char *str, char format)
+int	minus(const char *str, char format)
 {
 	str++;
 	while ((*str == '0' || *str == '-') && *str != format)
@@ -24,7 +24,7 @@ int		minus(const char *str, char format)
 	return (0);
 }
 
-int		zero(const char *str, char format)
+int	zero(const char *str, char format)
 {
 	str++;
 	while ((*str == '0' || *str == '-') && *str != format)
@@ -36,9 +36,9 @@ int		zero(const char *str, char format)
 	return (0);
 }
 
-int		precision(const char *str, char format, va_list ap)
+int	precision(const char *str, char format, va_list ap)
 {
-	int stock;
+	int	stock;
 
 	while (*str != format)
 		str++;
@@ -57,7 +57,7 @@ int		precision(const char *str, char format, va_list ap)
 	return (ft_atoi(str + 1));
 }
 
-int		width(const char *str, char format, va_list ap)
+int	width(const char *str, char format, va_list ap)
 {
 	str++;
 	while ((*str == '0' || *str == '-') && *str != format)
@@ -71,9 +71,10 @@ int		width(const char *str, char format, va_list ap)
 
 char	*alloc_print(int size, int zero)
 {
-	char *print;
+	char	*print;
 
-	if (!(print = ft_calloc(size + 1, sizeof(char))))
+	print = ft_calloc(size + 1, sizeof(char));
+	if (!print)
 		return (NULL);
 	print[size] = 0;
 	if (zero)

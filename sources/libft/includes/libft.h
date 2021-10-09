@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 14:19:24 by avieira           #+#    #+#             */
-/*   Updated: 2021/04/16 21:30:06 by avieira          ###   ########.fr       */
+/*   Updated: 2021/10/09 14:17:29 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include "get_next_line.h"
 # include "ft_printf.h"
 
-typedef struct		s_list
+typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
@@ -40,8 +40,8 @@ void				*ft_memmove(void *dst, const void *src, size_t len);
 void				*ft_memset(void *b, int c, size_t len);
 char				**ft_split(char const *s, char c);
 char				*ft_strchr(const char *s, int c);
-char				*ft_strjoin(char *s1, char  *s2);
-int				ft_strlen(char *s);
+char				*ft_strjoin(char *s1, char *s2);
+int					ft_strlen(char *s);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 char				*ft_strrchr(const char *s, int c);
 char				*ft_strtrim(char const *s1, char const *set);
@@ -66,8 +66,8 @@ void				ft_lstadd_back(t_list **alst, t_list *nw);
 void				ft_lstdelone(t_list *lst, void (*del)(void*));
 void				ft_lstclear(t_list **lst, void (*del)(void*));
 void				ft_lstiter(t_list *lst, void (*f)(void *));
-t_list				*ft_lstmap(t_list *lst, void *(*f)(void *), \
-					void (*del)(void *));
-void				ft_lstdelall(t_list **lst, void	(*del)(void *));
+t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
+						void (*del)(void *));
+void				ft_lstdelall(t_list **lst, void (*del)(void *));
 
 #endif

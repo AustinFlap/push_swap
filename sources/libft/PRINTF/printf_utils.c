@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf_utils_3.c                                   :+:      :+:    :+:   */
+/*   printf_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 20:44:21 by avieira           #+#    #+#             */
-/*   Updated: 2021/04/14 13:42:29 by avieira          ###   ########.fr       */
+/*   Updated: 2021/10/09 14:07:20 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int			max(int a, int b)
+int	max(int a, int b)
 {
 	if (a > b)
 		return (a);
 	return (b);
 }
 
-void		str_toupper(char *str)
+void	str_toupper(char *str)
 {
 	while (*str)
 	{
@@ -55,7 +55,7 @@ static char	*ft_strnstr_in_zero(const char *big, const char *little, size_t len)
 	return (NULL);
 }
 
-void		replace(char *print, char *to_move)
+void	replace(char *print, char *to_move)
 {
 	char	*place;
 	int		l_to_move;

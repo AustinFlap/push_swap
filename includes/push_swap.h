@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 21:20:18 by avieira           #+#    #+#             */
-/*   Updated: 2021/10/04 14:30:19 by avieira          ###   ########.fr       */
+/*   Updated: 2021/10/09 14:14:20 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # define SIZE_CHUNK 30
 # include <stdio.h>
 
-typedef enum	e_opes
+typedef enum e_opes
 {
 	sa,
 	sb,
@@ -37,7 +37,7 @@ typedef enum	e_opes
 	rrr
 }				t_opes;
 
-typedef struct	s_stacks
+typedef struct s_stacks
 {
 	int			*a;
 	int			*b;
@@ -45,13 +45,13 @@ typedef struct	s_stacks
 	int			*len_b;
 }				t_stacks;
 
-typedef struct	s_input
+typedef struct s_input
 {
 	t_stacks	stacks;
 	t_list		*opes;
 }				t_input;
 
-typedef struct	s_chunk
+typedef struct s_chunk
 {
 	int			size;
 	void		(*rotate)(t_stacks *, char, t_input *);
@@ -77,9 +77,9 @@ void			push_b(t_stacks *stacks, char sorting, t_input *input);
 void			rotate_a(t_stacks *stacks, char sorting, t_input *input);
 void			rotate_b(t_stacks *stacks, char sorting, t_input *input);
 void			rotate_double(t_stacks *stacks, char sorting, t_input *input);
-void			reverse_rotate_a(t_stacks *stacks, char sorting, t_input *input);
-void			reverse_rotate_b(t_stacks *stacks, char sorting, t_input *input);
-void			reverse_rotate_double(t_stacks *stacks, char sorting, t_input *input);
+void			reverse_rotate_a(t_stacks *stacks, char sort, t_input *input);
+void			reverse_rotate_b(t_stacks *stacks, char sort, t_input *inpt);
+void			reverse_rotate_double(t_stacks *stck, char sort, t_input *inpt);
 void			swap(int *a, int *len_a);
 void			push(int *a, int *b, int *len_a, int *len_b);
 void			rotate(int *a, int *len_a);
@@ -88,10 +88,10 @@ void			reverse_array_index(int *a, int start, int end);
 void			display_stacks(int *a, int *b, int *len_a, int *len_b);
 void			transform_stack(t_input*input);
 void			sort_stack(t_input *input);
-void			find_nearer_of_chunk(t_stacks *stack, int bot, int top, t_chunk *chunk);
+void			find_nearer_of_chunk(t_stacks *s, int b, int t, t_chunk *chnk);
 void			add_ope(t_opes *ope, t_input *input);
 void			shift_b_before_push(t_stacks *stacks, t_input *input);
-void			define_chunk_order(int n_chunk, t_stacks *stacks, t_input *input, int *order);
+void			define_chunk_order(int n_chnk, t_stacks *s, t_input *i, int *o);
 void			transform_order(int *order, int len);
 int				is_sort(int *stack, int len);
 void			sort_little(t_input *input, t_stacks *stacks);

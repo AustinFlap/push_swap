@@ -6,13 +6,13 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 20..//08 20:44:21 by avieira           #+#    #+#             */
-/*   Updated: 20..//17 18:51:10 by avieira          ###   ########.fr       */
+/*   Updated: 2021/10/09 13:21:48 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-int		ft_atoi(const char *nptr)
+int	ft_atoi(const char *nptr)
 {
 	int			nb;
 	const char	*temp;

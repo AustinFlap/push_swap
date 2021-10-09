@@ -6,13 +6,13 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 18:24:13 by avieira           #+#    #+#             */
-/*   Updated: 2021/04/14 13:35:49 by avieira          ###   ########.fr       */
+/*   Updated: 2021/10/09 14:00:14 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/get_next_line.h"
 
-static char			*append_line(char *buff, char *line, int *nl)
+static char	*append_line(char *buff, char *line, int *nl)
 {
 	int				l_to_end;
 	int				l_buff;
@@ -21,21 +21,23 @@ static char			*append_line(char *buff, char *line, int *nl)
 
 	l_to_end = ft_strl_spec(buff, '\n');
 	l_buff = ft_strl_spec(buff, 0);
-	if (!(temp_substr = ft_substr(buff, 0, l_to_end)))
-		return (NULL);
-	if (!(temp_line = ft_strjoin(line, temp_substr)))
+	temp_substr = ft_substr(buff, 0, l_to_end);
+	temp_line = ft_strjoin(line, temp_substr);
+	if (!temp_substr || ! temp_line)
 		return (NULL);
 	free(line);
 	free(temp_substr);
 	line = temp_line;
-	*nl = (buff[l_to_end] == '\n') ? 1 : 0;
+	*nl = 0;
+	if (buff[l_to_end] == '\n')
+		*nl = 1;
 	ft_memcpy(buff, buff + l_to_end + *nl, l_buff - l_to_end - *nl + 1);
 	if (buff[BUFFER_SIZE + 1])
 		*nl = 1;
 	return (line);
 }
 
-static int			ini_check(int fd, char **line, int *new_line)
+static int	ini_check(int fd, char **line, int *new_line)
 {
 	if (!line || !(MAX_FD > fd) || BUFFER_SIZE < 1 || fd < 0)
 	{
@@ -43,13 +45,14 @@ static int			ini_check(int fd, char **line, int *new_line)
 			free(*line);
 		return (1);
 	}
-	if (!(*line = ft_strdup("")))
+	*line = ft_strdup("");
+	if (!*line)
 		return (1);
 	*new_line = 0;
 	return (0);
 }
 
-int					get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
 	static char		buff[MAX_FD][BUFFER_SIZE + 2];
 	int				ret;
@@ -61,13 +64,15 @@ int					get_next_line(int fd, char **line)
 	{
 		if (!*buff[fd])
 		{
-			if ((ret = read(fd, buff[fd], BUFFER_SIZE)) == -1)
+			ret = read(fd, buff[fd], BUFFER_SIZE);
+			if (ret == -1)
 				return (ret);
 			buff[fd][ret] = 0;
 			if (ret < BUFFER_SIZE && !buff[fd][ft_strl_spec(buff[fd], '\n')])
 				buff[fd][BUFFER_SIZE + 1] = 1;
 		}
-		if (!(*line = append_line(buff[fd], *line, &new_line)))
+		*line = append_line(buff[fd], *line, &new_line);
+		if (!*line)
 			return (-1);
 	}
 	if (!buff[fd][BUFFER_SIZE + 1])
