@@ -6,13 +6,13 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 17:34:42 by avieira           #+#    #+#             */
-/*   Updated: 2021/10/09 04:23:46 by avieira          ###   ########.fr       */
+/*   Updated: 2021/10/09 05:26:55 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void		get_find(int find[2], t_stacks *stacks)
+void	get_find(int find[2], t_stacks *stacks)
 {
 	int		i;
 	int		min_delta[2];
@@ -37,7 +37,7 @@ void		get_find(int find[2], t_stacks *stacks)
 	}
 }
 
-void		rearange_b(t_stacks *stacks, t_input *input)
+void	rearange_b(t_stacks *stacks, t_input *input)
 {
 	void	(*rotate)(t_stacks *, char, t_input *);
 	int		find[2];
@@ -59,7 +59,7 @@ void		rearange_b(t_stacks *stacks, t_input *input)
 		rotate(stacks, 1, input);
 }
 
-void		sort_chunk(t_input *input, int bot, int top)
+void	sort_chunk(t_input *input, int bot, int top)
 {
 	t_chunk	chunk;
 	int		i;
@@ -69,13 +69,14 @@ void		sort_chunk(t_input *input, int bot, int top)
 	chunk.size = 1 + chunk.max - chunk.min;
 	chunk.min_value = input->stacks.a[chunk.min];
 	chunk.max_value = input->stacks.a[chunk.max];
-	while (*input->stacks.a != chunk.max_value &&
-											*input->stacks.a != chunk.min_value)
+	while (*input->stacks.a != chunk.max_value
+		&& *input->stacks.a != chunk.min_value)
 		chunk.rotate(&input->stacks, 1, input);
 	i = -1;
 	while (++i < chunk.size)
 	{
-		if (*input->stacks.a >= bot && *input->stacks.a <= top && *input->stacks.len_a)
+		if (*input->stacks.a >= bot && *input->stacks.a <= top
+			&& *input->stacks.len_a)
 		{
 			if (*input->stacks.len_b)
 				rearange_b(&input->stacks, input);
@@ -87,7 +88,7 @@ void		sort_chunk(t_input *input, int bot, int top)
 	}
 }
 
-void		sort_big(t_input *input)
+void	sort_big(t_input *input)
 {
 	int		n_chunk;
 	int		i;
@@ -97,7 +98,8 @@ void		sort_big(t_input *input)
 	n_chunk = *input->stacks.len_a / SIZE_CHUNK;
 	if (*input->stacks.len_a % SIZE_CHUNK)
 		n_chunk++;
-	if (!(order = malloc(sizeof(int) * n_chunk)))
+	order = malloc(sizeof(int) * n_chunk);
+	if (!order)
 		error(input);
 	define_chunk_order(n_chunk, &input->stacks, input, order);
 	i_order = n_chunk - 1;
@@ -115,8 +117,7 @@ void		sort_big(t_input *input)
 	free(order);
 }
 
-
-void		sort_stack(t_input* input)
+void	sort_stack(t_input *input)
 {
 	if (is_sort(input->stacks.a, *input->stacks.len_a))
 		return ;

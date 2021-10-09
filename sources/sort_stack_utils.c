@@ -6,23 +6,23 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 18:17:35 by avieira           #+#    #+#             */
-/*   Updated: 2021/10/09 03:52:54 by avieira          ###   ########.fr       */
+/*   Updated: 2021/10/09 05:19:07 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void		add_ope(t_opes *ope, t_input *input)
+void	add_ope(t_opes *ope, t_input *input)
 {
 	t_list	*new_ope;
 
-	if (!(new_ope = ft_lstnew(ope)))
+	new_ope = ft_lstnew(ope);
+	if (!new_ope)
 		error(input);
 	ft_lstadd_back(&input->opes, new_ope);
-	//display_stacks(input->stacks.a, input->stacks.b, input->stacks.len_a, input->stacks.len_b);
 }
 
-int			is_sort(int *stack, int len)
+int	is_sort(int *stack, int len)
 {
 	int		temp;
 	int		i;
@@ -38,7 +38,7 @@ int			is_sort(int *stack, int len)
 	return (1);
 }
 
-void		find_nearer_of_chunk(t_stacks *stack, int bot, int top, t_chunk *chunk)
+void	find_nearer_of_chunk(t_stacks *stack, int bot, int top, t_chunk *chunk)
 {
 	int		i;
 
@@ -66,8 +66,8 @@ void		find_nearer_of_chunk(t_stacks *stack, int bot, int top, t_chunk *chunk)
 
 void	shift_b_before_push(t_stacks *stacks, t_input *input)
 {
-	int i;
-	void	(*rotate)(t_stacks *, char, t_input *);;
+	int		i;
+	void	(*rotate)(t_stacks *, char, t_input *);
 
 	i = 0;
 	while (stacks->b[i])
@@ -84,19 +84,20 @@ void	shift_b_before_push(t_stacks *stacks, t_input *input)
 		rotate(stacks, 1, input);
 }
 
-void		define_chunk_order(int n_chunk, t_stacks *stacks, t_input *input, int *order)
+void	define_chunk_order(int n_chunk, t_stacks *stacks, t_input *input,
+																	int *order)
 {
-	t_chunk *chunk_order;
+	t_chunk		*chunk_order;
 	int			i;
 
-	if (!(chunk_order = malloc(sizeof(t_chunk) * n_chunk)))
-	//if (!(chunk_order = ft_calloc(n_chunk, sizeof(int))))
+	chunk_order = malloc(sizeof(t_chunk) * n_chunk);
+	if (!chunk_order)
 		error(input);
 	i = -1;
 	while (++i < n_chunk)
 	{
 		find_nearer_of_chunk(stacks, i * SIZE_CHUNK, ((i + 1) * SIZE_CHUNK - 1),
-															&chunk_order[i]);
+			&chunk_order[i]);
 		order[i] = chunk_order[i].max - chunk_order[i].min;
 	}
 	transform_order(order, n_chunk);

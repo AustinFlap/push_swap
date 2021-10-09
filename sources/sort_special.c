@@ -6,13 +6,13 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 12:47:55 by avieira           #+#    #+#             */
-/*   Updated: 2021/10/04 14:28:59 by avieira          ###   ########.fr       */
+/*   Updated: 2021/10/09 05:30:38 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void		get_find_a(int find[2], t_stacks *stacks)
+void	get_find_a(int find[2], t_stacks *stacks)
 {
 	int		i;
 	int		min_delta[2];
@@ -37,7 +37,7 @@ void		get_find_a(int find[2], t_stacks *stacks)
 	}
 }
 
-void		rearange_a(t_stacks *stacks, t_input *input)
+void	rearange_a(t_stacks *stacks, t_input *input)
 {
 	void	(*rotate)(t_stacks *, char, t_input *);
 	int		find[2];
@@ -59,8 +59,24 @@ void		rearange_a(t_stacks *stacks, t_input *input)
 		rotate(stacks, 1, input);
 }
 
+void	sort_cases(t_input *input, t_stacks *stacks, int count_diff)
+{
+	if (count_diff > 1)
+		swap_a(stacks, 1, input);
+	if (stacks->a[1] < stacks->a[0] && stacks->a[1] < stacks->a[2])
+		rotate_a(stacks, 1, input);
+	if (stacks->a[2] < stacks->a[0] && stacks->a[2] < stacks->a[1])
+		reverse_rotate_a(stacks, 1, input);
+	while (*stacks->len_b)
+	{
+		rearange_a(stacks, input);
+		push_a(stacks, 1, input);
+	}
+	while (*stacks->a)
+		rotate_a(stacks, 1, input);
+}
 
-void		sort_little(t_input *input, t_stacks *stacks)
+void	sort_little(t_input *input, t_stacks *stacks)
 {
 	int		diff[3];
 	int		c;
@@ -81,17 +97,5 @@ void		sort_little(t_input *input, t_stacks *stacks)
 	while (++i < 3)
 		if (diff[i] < 0)
 			c++;
-	if (c > 1)
-		swap_a(stacks, 1, input);
-	if (stacks->a[1] < stacks->a[0] && stacks->a[1] < stacks->a[2])
-		rotate_a(stacks, 1, input);
-	if (stacks->a[2] < stacks->a[0] && stacks->a[2] < stacks->a[1])
-		reverse_rotate_a(stacks, 1, input);
-	while (*stacks->len_b)
-	{
-		rearange_a(stacks, input);
-		push_a(stacks, 1, input);
-	}
-	while (*stacks->a)
-		rotate_a(stacks, 1, input);
+	sort_cases(input, stacks, c);
 }
