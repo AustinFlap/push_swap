@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/12 14:17:05 by avieira           #+#    #+#             */
-/*   Updated: 2021/10/09 14:12:05 by avieira          ###   ########.fr       */
+/*   Updated: 2021/10/11 15:44:36 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ static t_flag	def_flag(const char *str, char format, va_list ap)
 			&& flag.precision > -1))
 		flag.zero = 0;
 	else
-		zero(str, format);
+		flag.zero = zero(str, format);
 	return (flag);
 }
 
