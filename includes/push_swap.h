@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 21:20:18 by avieira           #+#    #+#             */
-/*   Updated: 2021/10/09 16:46:41 by avieira          ###   ########.fr       */
+/*   Updated: 2021/10/11 13:32:52 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 # define MAX_INT 2147483647
 # define MIN_INT -2147483648
 # define SIZE_CHUNK 28
-# include <stdio.h>
 
 typedef enum e_opes
 {
