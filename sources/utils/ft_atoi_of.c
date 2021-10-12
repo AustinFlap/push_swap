@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 20:44:21 by avieira           #+#    #+#             */
-/*   Updated: 2021/10/09 13:11:25 by avieira          ###   ########.fr       */
+/*   Updated: 2021/10/12 22:15:29 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,27 @@
 
 int	ft_atoi_of(const char *nptr, t_input *input)
 {
-	const char	*temp;
-	long int	nb;
-	int			u;
+	int					i;
+	int					neg;
+	unsigned long long	n;
 
-	temp = nptr;
-	u = 1;
-	nb = 0;
-	while (*temp)
-		temp++;
-	while (temp != nptr)
+	i = 0;
+	n = 0;
+	neg = 1;
+	while ((nptr[i] > 8 && nptr[i] < 14) || nptr[i] == 32)
+		i++;
+	if (nptr[i] == '+' || nptr[i] == '-')
+		if (nptr[i++] == '-')
+			neg = -1;
+	if (i == (int)ft_strlen((char *)nptr))
+		error(input);;
+	while (nptr[i] >= '0' && nptr[i] <= '9')
 	{
-		temp--;
-		if (*temp >= '0' && *temp <= '9')
-		{
-			nb += (*temp - 48) * u;
-			u *= 10;
-		}
-		else if (*temp == '-')
-			nb *= -1;
-		if (nb > MAX_INT)
+		n = 10 * n + (nptr[i++] - '0');
+		if ((n > 2147483647 && neg == 1) || (n > 2147483648 && neg == -1))
 			error(input);
 	}
-	if (nb < MIN_INT || nb > MAX_INT)
+	if (i == 0 || i != (int)ft_strlen((char *)nptr))
 		error(input);
-	return ((int)nb);
+	return ((int)n * neg);
 }

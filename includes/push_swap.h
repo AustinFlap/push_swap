@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 21:20:18 by avieira           #+#    #+#             */
-/*   Updated: 2021/10/11 15:49:47 by avieira          ###   ########.fr       */
+/*   Updated: 2021/10/12 22:18:42 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@
 # include <stdlib.h>
 # include "../sources/libft/includes/libft.h"
 
-# define MAX_INT 2147483647
-# define MIN_INT -2147483648
 # define SIZE_CHUNK 28
 
 typedef enum e_opes
