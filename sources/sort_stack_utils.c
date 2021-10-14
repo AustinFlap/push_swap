@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 18:17:35 by avieira           #+#    #+#             */
-/*   Updated: 2021/10/09 05:19:07 by avieira          ###   ########.fr       */
+/*   Updated: 2021/10/14 15:10:35 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,24 +82,4 @@ void	shift_b_before_push(t_stacks *stacks, t_input *input)
 		i++;
 	while (i--)
 		rotate(stacks, 1, input);
-}
-
-void	define_chunk_order(int n_chunk, t_stacks *stacks, t_input *input,
-																	int *order)
-{
-	t_chunk		*chunk_order;
-	int			i;
-
-	chunk_order = malloc(sizeof(t_chunk) * n_chunk);
-	if (!chunk_order)
-		error(input);
-	i = -1;
-	while (++i < n_chunk)
-	{
-		find_nearer_of_chunk(stacks, i * SIZE_CHUNK, ((i + 1) * SIZE_CHUNK - 1),
-			&chunk_order[i]);
-		order[i] = chunk_order[i].max - chunk_order[i].min;
-	}
-	transform_order(order, n_chunk);
-	free(chunk_order);
 }

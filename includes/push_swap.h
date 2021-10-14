@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 21:20:18 by avieira           #+#    #+#             */
-/*   Updated: 2021/10/12 22:18:42 by avieira          ###   ########.fr       */
+/*   Updated: 2021/10/14 15:13:52 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdlib.h>
 # include "../sources/libft/includes/libft.h"
 
-# define SIZE_CHUNK 28
+# define SIZE_CHUNK 18
 
 typedef enum e_opes
 {
@@ -88,7 +88,6 @@ void			sort_stack(t_input *input);
 void			find_nearer_of_chunk(t_stacks *s, int b, int t, t_chunk *chnk);
 void			add_ope(t_opes *ope, t_input *input);
 void			shift_b_before_push(t_stacks *stacks, t_input *input);
-void			define_chunk_order(int n_chnk, t_stacks *s, t_input *i, int *o);
 void			transform_order(int *order, int len);
 int				is_sort(int *stack, int len);
 void			sort_little(t_input *input, t_stacks *stacks);
