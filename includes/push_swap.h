@@ -15,7 +15,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-# include "../sources/libft/includes/libft.h"
+# include "../libft/includes/libft.h"
 
 typedef enum e_opes
 {

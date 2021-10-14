@@ -58,7 +58,7 @@ CFLAGS = -Wall -Wextra -Werror
 
 SRCS_DIR = sources/
 
-LIBFT = -L sources/libft -lft
+LIBFT = -L libft -lft
 
 STRT_STYLE = \033[1;32m
 
@@ -71,21 +71,21 @@ all: $(NAME_C) $(NAME_PS)
 
 checker: $(OBJ) $(OBJ_CHECKER)
 	@(printf "$(STRT_STYLE)Compiling libft...\n$(END_STYLE)")
-	@make -C sources/libft/
+	@make -C libft/
 	@(printf "$(STRT_STYLE)Compiling...\n$(END_STYLE)")
 	@($(CC) -o $(NAME_C) -I$(IFLAGS) $^ $(CFLAGS) $(LIBFT))
 	@(printf "$(STRT_STYLE)Done.\n$(END_STYLE)")
 
 push_swap: $(OBJ) $(OBJ_PUSH_SWAP)
 	@(printf "$(STRT_STYLE)Compiling libft...\n$(END_STYLE)")
-	@make -C sources/libft/
+	@make -C libft/
 	@(printf "$(STRT_STYLE)Compiling...\n$(END_STYLE)")
 	@($(CC) -o $(NAME_PS) -I$(IFLAGS) $^ $(CFLAGS) $(LIBFT))
 	@(printf "$(STRT_STYLE)Done.\n$(END_STYLE)")
 
 clean:
 	@(printf "$(STRT_STYLE)Cleaning libft...\n$(END_STYLE)")
-	@make clean -C sources/libft/
+	@make clean -C libft/
 	@(printf "$(STRT_STYLE)Cleaning...\n$(END_STYLE)")
 	@($(RM) $(SRCS_DIR)/*.o)
 	@($(RM) $(SRCS_DIR)/*/*.o)
@@ -94,7 +94,7 @@ clean:
 
 fclean: clean
 	@(printf "$(STRT_STYLE)Fcleaning libft...\n$(END_STYLE)")
-	@make fclean -C sources/libft/
+	@make fclean -C libft/
 	@(printf "$(STRT_STYLE)Fcleaning...\n$(END_STYLE)")
 	@($(RM) $(NAME_C))
 	@($(RM) $(NAME_PS))

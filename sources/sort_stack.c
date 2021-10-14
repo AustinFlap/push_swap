@@ -94,7 +94,8 @@ void	sort_big(t_input *input)
 	int		i;
 	double	size_chunk;
 
-	size_chunk = -0.00004 * (*input->stacks.len_a * *input->stacks.len_a) + 0.08 * *input->stacks.len_a + 9.4;
+	size_chunk = -0.00004 * (*input->stacks.len_a * *input->stacks.len_a)
+		+ 0.08 * *input->stacks.len_a + 9.4;
 	n_chunk = *input->stacks.len_a / (int)size_chunk;
 	if (*input->stacks.len_a % (int)size_chunk)
 		n_chunk++;
