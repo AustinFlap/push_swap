@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 17:34:42 by avieira           #+#    #+#             */
-/*   Updated: 2021/10/14 15:11:26 by avieira          ###   ########.fr       */
+/*   Updated: 2021/10/14 15:42:14 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,13 +92,15 @@ void	sort_big(t_input *input)
 {
 	int		n_chunk;
 	int		i;
+	double	size_chunk;
 
-	n_chunk = *input->stacks.len_a / SIZE_CHUNK;
-	if (*input->stacks.len_a % SIZE_CHUNK)
+	size_chunk = -0.00004 * (*input->stacks.len_a * *input->stacks.len_a) + 0.08 * *input->stacks.len_a + 9.4;
+	n_chunk = *input->stacks.len_a / (int)size_chunk;
+	if (*input->stacks.len_a % (int)size_chunk)
 		n_chunk++;
 	i = -1;
 	while (++i < n_chunk)
-		sort_chunk(input, i * SIZE_CHUNK, ((i + 1) * SIZE_CHUNK - 1));
+		sort_chunk(input, i * (int)size_chunk, ((i + 1) * (int)size_chunk - 1));
 	shift_b_before_push(&input->stacks, input);
 	while (*input->stacks.len_b)
 		push_a(&input->stacks, 1, input);

@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 21:20:18 by avieira           #+#    #+#             */
-/*   Updated: 2021/10/14 15:13:52 by avieira          ###   ########.fr       */
+/*   Updated: 2021/10/14 15:44:08 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include "../sources/libft/includes/libft.h"
-
-# define SIZE_CHUNK 18
 
 typedef enum e_opes
 {
