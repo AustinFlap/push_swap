@@ -6,7 +6,7 @@
 /*   By: avieira <avieira@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/08 23:58:03 by avieira           #+#    #+#             */
-/*   Updated: 2021/10/09 16:39:20 by avieira          ###   ########.fr       */
+/*   Updated: 2021/10/16 13:24:50 by avieira          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,9 @@ int	main(int ac, char **av)
 		temp = input.opes;
 		while (temp)
 		{
-			ft_printf("%s\n", opes[*(int *)temp->content]);
+			write(1, opes[*(int *)temp->content], ft_strlen(opes[*(int *)temp->content]));
+			write(1, "\n", 1);
+			//ft_printf("%s\n", opes[*(int *)temp->content]);
 			temp = temp->next;
 		}
 		free_input(&input);
