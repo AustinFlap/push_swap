@@ -74,9 +74,9 @@ int	main(int ac, char **av)
 		temp = input.opes;
 		while (temp)
 		{
-			write(1, opes[*(int *)temp->content], ft_strlen(opes[*(int *)temp->content]));
+			write(1, opes[*(int *)temp->content],
+				ft_strlen(opes[*(int *)temp->content]));
 			write(1, "\n", 1);
-			//ft_printf("%s\n", opes[*(int *)temp->content]);
 			temp = temp->next;
 		}
 		free_input(&input);

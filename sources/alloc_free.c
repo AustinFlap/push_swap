@@ -27,7 +27,7 @@ void	free_input(t_input *input)
 
 void	error(t_input *input)
 {
-	ft_printf("Error\n");
+	write(1, "Error\n", 6);
 	free_input(input);
 	exit(EXIT_SUCCESS);
 }
